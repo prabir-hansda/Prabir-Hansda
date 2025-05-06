@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Age</title>
+  <style>
+    /* Root variables for consistent theming */
+    :root {
+      --primary-color: violet;
+      --secondary-color: #e91e63;
+      --background-gradient-start: #FFBBFF;
+      --background-gradient-end: purple;
+      --container-background: black;
+      --text-primary: #333;
+      --text-secondary: #555;
+      --box-shadow-light: rgba(0, 0, 0, 0.1);
+      --box-shadow-medium: rgba(0, 0, 0, 0.15);
+      --transition-duration: 0.3s;
+      --font-family-base: 'Arial', sans-serif;
+    }
+
+    /* Base body styling with smooth transition */
+    body {
+      font-family: var(--font-family-base);
+      background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Use min-height for better content flow */
+      overflow: hidden; /* Prevents scrollbar when content doesn't fill the viewport */
+      transition: background var(--transition-duration) ease-in-out;
+    }
+
+    /* Container with enhanced styling and transition */
+    .container {
+      background-color: var(--container-background);
+      padding: 48px 72px; /* Increased padding for a more spacious feel */
+      border-radius: 24px; /* Slightly more rounded corners */
+      box-shadow: 0 12px 36px var(--box-shadow-light); /* More pronounced shadow */
+      text-align: center;
+      max-width: 350px; /* Slightly wider max-width */
+      width: 90%;
+      transition: all var(--transition-duration) ease-in-out;
+    }
+
+    /* Improved heading style */
+    h1 {
+      font-size: 2.75rem; /* Slightly larger font size */
+      color: var(--primary-color);
+      margin-bottom: 36px; /* Increased margin */
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-shadow: 0 1px 2px var(--box-shadow-light); /* Subtle text shadow */
+    }
+
+    /* Age information with better visual hierarchy */
+    #age {
+      font-size: 1.75rem; /* Increased font size */
+      font-weight: 600; /* Semi-bold for better emphasis */
+      color: var(--secondary-color);
+      background-color: burlywood;
+      padding: 24px; /* Increased padding */
+      border-radius: 12px;
+      box-shadow: 0 2px 8px var(--box-shadow-light); /* Subtle inner shadow */
+      margin-top: 24px;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box; /* Ensure padding doesn't increase width */
+      transition: transform var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
+    }
+
+    /* Enhanced hover effect */
+    #age:hover {
+      transform: scale(1.03); /* Slightly less aggressive scale */
+      box-shadow: 0 4px 12px var(--box-shadow-medium);
+    }
+
+    /* Responsive design for tablets and smaller desktops */
+    @media (max-width: 768px) {
+      .container {
+        padding: 32px;
+        width: 95%;
+        border-radius: 18px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+        margin-bottom: 24px;
+      }
+
+      #age {
+        font-size: 1.5rem;
+        padding: 18px;
+        border-radius: 10px;
+      }
+    }
+
+    /* Responsive design for mobile */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      #age {
+        font-size: 1.3rem;
+        padding: 16px;
+        border-radius: 8px;
+      }
+    }
+
+    /* Extra style for desktop (larger screens) */
+    @media (min-width: 769px) {
+      .container:hover {
+        box-shadow: 0 16px 48px var(--box-shadow-medium); /* More prominent hover shadow */
+        transform: translateY(-4px); /* Slight lift on hover */
+      }
+    }
+
+    /* Style for the "until next birthday" text */
+    #age small {
+      display: block; /* Make it a separate line */
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 12px;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>How Old Am I Now:</h1>
+    <div id="age">Loading...</div>
+  </div>
+
+  <script>
+    const birthDate = new Date("2004-08-22T14:02:00");
+    const ageDiv = document.getElementById("age");
+
+    function updateAge() {
+      const now = new Date();
+      let years = now.getFullYear() - birthDate.getFullYear();
+      let months = now.getMonth() - birthDate.getMonth();
+      let days = now.getDate() - birthDate.getDate();
+      let hours = now.getHours() - birthDate.getHours();
+      let minutes = now.getMinutes() - birthDate.getMinutes();
+      let seconds = now.getSeconds() - birthDate.getSeconds();
+
+      // Adjust if negative
+      if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+      }
+      if (minutes < 0) {
+        minutes += 60;
+        hours--;
+      }
+      if (hours < 0) {
+        hours += 24;
+        days--;
+      }
+      if (days < 0) {
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+        months--;
+      }
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
+
+      let ageString = `${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+
+      // Calculate and display time until next birthday for desktop
+      if (window.innerWidth > 768) {
+        const nextBirthday = new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate(), birthDate.getHours(), birthDate.getMinutes(), birthDate.getSeconds());
+        if (nextBirthday < now) {
+          nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+        }
+
+        let timeDiff = nextBirthday.getTime() - now.getTime();
+        let daysLeft = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        let hoursLeft = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutesLeft = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        let secondsLeft = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        ageString += `<br><small>Until next birthday: ${daysLeft} days, ${hoursLeft} hours, ${minutesLeft} minutes, ${secondsLeft} seconds</small>`;
+      }
+
+      ageDiv.innerHTML = ageString;
+    }
+
+    // Update the age every second
+    setInterval(updateAge, 1000);
+
+    // Initial update when the page loads
+    updateAge();
+
+    // Update again if the window is resized (optional, for dynamic layout changes)
+    window.addEventListener('resize', updateAge);
+  </script>
+
+</body>
+</html>
