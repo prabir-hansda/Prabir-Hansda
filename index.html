@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google-site-verification" content="7DQuYEwUYANzh3D6YfIhVHjl5gcqH1aLkLg1icCfGfc" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/prabir-hansda/Hansda-Music-Player/refs/heads/main/My%20Sketch.jpg">
+  
+  <meta name="description" content="Official links to Prabir Hansda's music, social profiles, videos, and more. Explore all platforms from one place.">
+  <meta name="keywords" content="Prabir Hansda, Prabir, Hansda, links, social media, profile, music creator, digital artist">
+  <meta name="author" content="Prabir Hansda">
+  <meta property="og:title" content="Prabir Hansda - Links & Socials">
+  <meta property="og:description" content="Explore all official links of Prabir Hansda in one place.">
+  <meta property="og:url" content="https://prabirhansda.onrender.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:see_also" content="https://www.instagram.com/prabirhansda2" />
+  
+  <meta name="theme-color" content="#6e45e2">
+  <meta name="associated-project" content="ShadowEchoVerse - https://shadowechoverse.onrender.com">
+  <link rel="icon" type="image/jpg" href="https://raw.githubusercontent.com/prabir-hansda/Hansda-Music-Player/refs/heads/main/My%20Sketch.jpg">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/prabir-hansda/Hansda-Music-Player/refs/heads/main/My%20Sketch.jpg">
+  <title>Prabir Hansda | Digital Creator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6e45e2;
+      --secondary: #88d3ce;
+      --accent: #ff7e5f;
+      --dark: #1e1e2f;
+      --light: #f8f9fa;
+      --text: #e2e2e2;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--dark) 0%, #2d2d44 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .wrapper {
+      background: rgba(30, 30, 47, 0.95);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .wrapper::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(110, 69, 226, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile {
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .profile img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--secondary);
+      margin-bottom: 15px;
+      box-shadow: 0 5px 20px rgba(136, 211, 206, 0.4);
+      transition: var(--transition);
+    }
+
+    .profile img:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 8px 25px rgba(136, 211, 206, 0.6);
+    }
+
+    .profile h1 {
+      font-size: 28px;
+      margin: 10px 0 5px;
+      color: var(--light);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background: linear-gradient(to right, var(--secondary), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .profile p {
+      font-size: 16px;
+      color: var(--secondary);
+      margin-bottom: 5px;
+      font-weight: 300;
+    }
+
+    .profile .tagline {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(136, 211, 206, 0.1);
+      border-radius: 50px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--secondary);
+      border: 1px solid rgba(136, 211, 206, 0.3);
+      transition: var(--transition);
+    }
+
+    .profile .tagline:hover {
+      background: rgba(136, 211, 206, 0.2);
+      transform: scale(1.05);
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--light);
+      padding: 15px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .links a:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      transition: var(--transition);
+    }
+
+    .links a:hover::before {
+      width: 100%;
+      opacity: 0.15;
+    }
+
+    .links a img {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      object-fit: contain;
+      margin-right: 15px;
+      transition: var(--transition);
+    }
+
+    .links a:hover img {
+      transform: scale(1.15) rotate(5deg);
+    }
+
+    .link-text {
+      flex: 1;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    .links a i {
+      font-size: 18px;
+      color: var(--secondary);
+      transition: var(--transition);
+      opacity: 0.8;
+    }
+
+    .links a:hover i {
+      transform: translateX(5px);
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Animation classes */
+    .fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Loading animation */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(136, 211, 206, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--secondary);
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Music Player Button */
+    .music-player-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(110, 69, 226, 0.3);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+      transition: var(--transition);
+      text-decoration: none;
+      z-index: 10;
+    }
+    
+    .music-player-btn:hover {
+      background: rgba(110, 69, 226, 0.5);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(136, 211, 206, 0.7);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .wrapper {
+        padding: 25px 20px;
+        max-width: 90%;
+      }
+      
+      .profile img {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .profile h1 {
+        font-size: 24px;
+      }
+      
+      .links a {
+        padding: 14px 18px;
+      }
+      
+      .link-text {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <div class="wrapper fade-in">
+    <!-- Music Player Button -->
+    <a href="https://shadowechoverse.onrender.com/music.html" class="music-player-btn" target="_blank" rel="noopener noreferrer" aria-label="Open Music Player">
+      <i class="fas fa-headphones"></i>
+    </a>
+
+    <div class="profile">
+      <img src="https://raw.githubusercontent.com/prabir-hansda/Hansda-Music-Player/refs/heads/main/My%20Sketch.jpg" alt="Prabir Hansda">
+      <h1>Prabir Hansda</h1>
+      <p>Digital Creator | Music Lover</p>
+      <span class="tagline">Connect with me across platforms</span>
+    </div>
+    
+    <div class="links">
+      <a href="https://instagram.com/prabirhansda2" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        <span class="link-text">Instagram</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="https://www.threads.com/@prabirhansda2" target="_blank" rel="noopener noreferrer">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF9YLpYW4qCi3gA_o-i3_gw2a7-fKjM8Q_8Q&s" alt="Threads">
+        <span class="link-text">Threads</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="https://x.com/PRABIRHANS18742" target="_blank" rel="noopener noreferrer">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3vkDmHxXsQN8SnqDmv0hICFuAwjOL_zzpzg&s" alt="X">
+        <span class="link-text">X (Twitter)</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="https://youtube.com/@vinesonlymusicvom?si=yIlwDNmgJfYIQHUH" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+        <span class="link-text">YouTube</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="https://wa.me/message/J5FVKYINPDHFH1" target="_blank" rel="noopener noreferrer">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3If7R2lmRdZCpL52fRz0wEmyOD_ju3NHdEA&s" alt="WhatsApp Business">
+        <span class="link-text">WhatsApp Business</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="https://signal.me/#eu/EMPxY08grIN7fUYfnPHBLj_Oz1uAZ9HvAqIl8IlJf-H7ihN1_8lHR7tvnybCg1TM" target="_blank" rel="noopener noreferrer">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNZ3-ttqBTaXAw7O2AG3W9POGxstB-7EkuRg&s" alt="Signal">
+        <span class="link-text">Signal</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="mailto:PrabirHansda2@outlook.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+        <span class="link-text">Email Me</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="https://shadowechoverse.onrender.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/prabir-hansda/Music-public-for-read/refs/heads/main/1.jpg" alt="ShadowEchoVerse">
+        <span class="link-text">ShadowEchoVerse</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      <a href="myage.html" target="_blank" rel="noopener noreferrer">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMRau_wqXNyuN8anFLctSW5l4u3jbikg7aU8O7C7Uc35-Vq3hxCoKN_TM&s=10" alt="Countdown">
+        <span class="link-text">Countdown</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+    </div>
+    
+    <footer>
+      <p>© 2025 Prabir Hansda. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Prabir Hansda",
+      "url": "https://prabirhansda.onrender.com",
+      "sameAs": [
+        "https://www.instagram.com/prabirhansda2",
+        "https://shadowechoverse.onrender.com/news.html"
+      ],
+      "jobTitle": "Digital Creator",
+      "description": "Music lover and digital content creator"
+    }
+  </script>
+  
+  <script>
+    // Loading animation
+    window.addEventListener('load', function() {
+      const loader = document.querySelector('.loader');
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    });
+
+    // Add staggered animation to links
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.links a');
+      links.forEach((link, index) => {
+        link.style.animationDelay = `${index * 0.1}s`;
+        link.classList.add('fade-in');
+      });
+
+      // Music player button test
+      const musicBtn = document.querySelector('.music-player-btn');
+      musicBtn.addEventListener('click', function() {
+        console.log("Music player button clicked!");
+      });
+    });
+  </script>
+</body>
+</html>
