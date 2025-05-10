@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Real Age Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #8A2BE2;
+      --secondary-color: #FF6B6B;
+      --accent-color: #20B2AA;
+      --dark-color: #1A1A2E;
+      --light-color: #F5F5F5;
+      --gradient-start: #667EEA;
+      --gradient-end: #764BA2;
+      --shadow-color: rgba(0, 0, 0, 0.2);
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --font-main: 'Poppins', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: var(--light-color);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      background: linear-gradient(to right, #FF6B6B, #8A2BE2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+      border-radius: 2px;
+    }
+
+    .age-display {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .time-unit {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      border-radius: 15px;
+      transition: var(--transition);
+      box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .time-unit:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .time-value {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: white;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .time-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .countdown-section {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .countdown-title {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .floating-bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    .birthdate-display {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .age-display {
+        grid-template-columns: 1fr;
+      }
+      
+      .time-unit {
+        padding: 12px;
+      }
+      
+      .time-value {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 25px 20px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .time-unit {
+        padding: 10px;
+      }
+      
+      .time-value {
+        font-size: 1.3rem;
+      }
+      
+      .time-label {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-bubbles" id="bubbles-container"></div>
+  
+  <div class="container">
+    <h1>My Real Age Calculator</h1>
+    
+    <div class="birthdate-display">Born on: August 22, 2004 at 14:02</div>
+    
+    <div class="age-display">
+      <div class="time-unit">
+        <span class="time-value" id="years">0</span>
+        <span class="time-label">Years</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-value" id="months">0</span>
+        <span class="time-label">Months</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-value" id="days">0</span>
+        <span class="time-label">Days</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-value" id="hours">0</span>
+        <span class="time-label">Hours</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-value" id="minutes">0</span>
+        <span class="time-label">Minutes</span>
+      </div>
+      <div class="time-unit">
+        <span class="time-value" id="seconds">0</span>
+        <span class="time-label">Seconds</span>
+      </div>
+    </div>
+    
+    <div class="countdown-section">
+      <div class="countdown-title">Time Until Next Birthday</div>
+      <div class="age-display">
+        <div class="time-unit">
+          <span class="time-value" id="days-left">0</span>
+          <span class="time-label">Days</span>
+        </div>
+        <div class="time-unit">
+          <span class="time-value" id="hours-left">0</span>
+          <span class="time-label">Hours</span>
+        </div>
+        <div class="time-unit">
+          <span class="time-value" id="minutes-left">0</span>
+          <span class="time-label">Minutes</span>
+        </div>
+        <div class="time-unit">
+          <span class="time-value" id="seconds-left">0</span>
+          <span class="time-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+// Age Calculator Script
+document.addEventListener('DOMContentLoaded', function() {
+  // Configuration
+  const config = {
+    birthDate: new Date("2004-08-22T14:02:00"),
+    bubbleDensity: 20, // bubbles per 1000px width
+    bubbleSizeRange: { min: 20, max: 80 },
+    bubbleDurationRange: { min: 20, max: 50 },
+    updateInterval: 1000 // ms
+  };
+
+  // DOM Elements
+  const elements = {
+    bubblesContainer: document.getElementById('bubbles-container'),
+    years: document.getElementById('years'),
+    months: document.getElementById('months'),
+    days: document.getElementById('days'),
+    hours: document.getElementById('hours'),
+    minutes: document.getElementById('minutes'),
+    seconds: document.getElementById('seconds'),
+    daysLeft: document.getElementById('days-left'),
+    hoursLeft: document.getElementById('hours-left'),
+    minutesLeft: document.getElementById('minutes-left'),
+    secondsLeft: document.getElementById('seconds-left')
+  };
+
+  // Initialize the calculator
+  function init() {
+    createBubbles();
+    updateAge();
+    setInterval(updateAge, config.updateInterval);
+    window.addEventListener('resize', handleResize);
+  }
+
+  // Create floating bubbles
+  function createBubbles() {
+    elements.bubblesContainer.innerHTML = '';
+    const bubbleCount = Math.floor(window.innerWidth * config.bubbleDensity / 1000);
+    
+    for (let i = 0; i < bubbleCount; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      
+      const size = randomInRange(config.bubbleSizeRange.min, config.bubbleSizeRange.max);
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.animationDuration = `${randomInRange(config.bubbleDurationRange.min, config.bubbleDurationRange.max)}s`;
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      bubble.style.opacity = Math.random() * 0.5 + 0.1;
+      
+      elements.bubblesContainer.appendChild(bubble);
+    }
+  }
+
+  // Update age and countdown
+  function updateAge() {
+    const now = new Date();
+    const age = calculateAge(now, config.birthDate);
+    const countdown = calculateCountdown(now, config.birthDate);
+    
+    updateDisplay(age, countdown);
+  }
+
+  // Calculate current age
+  function calculateAge(currentDate, birthDate) {
+    let years = currentDate.getFullYear() - birthDate.getFullYear();
+    let months = currentDate.getMonth() - birthDate.getMonth();
+    let days = currentDate.getDate() - birthDate.getDate();
+    let hours = currentDate.getHours() - birthDate.getHours();
+    let minutes = currentDate.getMinutes() - birthDate.getMinutes();
+    let seconds = currentDate.getSeconds() - birthDate.getSeconds();
+
+    // Adjust for negative values
+    if (seconds < 0) {
+      seconds += 60;
+      minutes--;
+    }
+    if (minutes < 0) {
+      minutes += 60;
+      hours--;
+    }
+    if (hours < 0) {
+      hours += 24;
+      days--;
+    }
+    if (days < 0) {
+      const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
+      days += prevMonth.getDate();
+      months--;
+    }
+    if (months < 0) {
+      months += 12;
+      years--;
+    }
+
+    return { years, months, days, hours, minutes, seconds };
+  }
+
+  // Calculate time until next birthday
+  function calculateCountdown(currentDate, birthDate) {
+    let nextBirthday = new Date(
+      currentDate.getFullYear(),
+      birthDate.getMonth(),
+      birthDate.getDate(),
+      birthDate.getHours(),
+      birthDate.getMinutes(),
+      birthDate.getSeconds()
+    );
+
+    if (nextBirthday < currentDate) {
+      nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+    }
+
+    const timeDiff = nextBirthday.getTime() - currentDate.getTime();
+    const daysLeft = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const hoursLeft = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutesLeft = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const secondsLeft = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+    return { daysLeft, hoursLeft, minutesLeft, secondsLeft };
+  }
+
+  // Update the display with calculated values
+  function updateDisplay(age, countdown) {
+    elements.years.textContent = age.years;
+    elements.months.textContent = age.months;
+    elements.days.textContent = age.days;
+    elements.hours.textContent = age.hours;
+    elements.minutes.textContent = age.minutes;
+    elements.seconds.textContent = age.seconds;
+    
+    elements.daysLeft.textContent = countdown.daysLeft;
+    elements.hoursLeft.textContent = countdown.hoursLeft;
+    elements.minutesLeft.textContent = countdown.minutesLeft;
+    elements.secondsLeft.textContent = countdown.secondsLeft;
+  }
+
+  // Handle window resize
+  function handleResize() {
+    createBubbles();
+  }
+
+  // Helper function to generate random numbers in range
+  function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  // Start the calculator
+  init();
+});
+</script>
+</body>
+</html>
