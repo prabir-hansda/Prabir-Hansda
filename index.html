@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="7DQuYEwUYANzh3D6YfIhVHjl5gcqH1aLkLg1icCfGfc" />
+  <meta name="description" content="Explore official links of Prabir Hansda, social profiles and more. Explore all platforms from one place.">
+  <meta name="keywords" content="Prabir Hansda, Prabir, Hansda, links, social media, profile, music creator, digital artist">
+  <meta name="author" content="Prabir Hansda">
+  <meta property="og:image" content="https://raw.githubusercontent.com/prabir-hansda/Hansda-Music-Player/refs/heads/main/My%20Sketch.jpg">
+  <meta property="og:title" content="Prabir Hansda - Links & Socials">
+  <meta property="og:description" content="Explore all official links of Prabir Hansda in one place.">
+  <meta property="og:url" content="https://prabirhansda.onrender.com/">
+  <meta property="og:type" content="profile">
+  <meta property="profile:first_name" content="Prabir">
+  <meta property="profile:last_name" content="Hansda">
+  <meta property="profile:username" content="prabirhansda">
+  <meta property="profile:gender" content="male">
+  <meta property="og:see_also" content="https://www.instagram.com/prabirhansda2" />
+  <meta name="theme-color" content="#0a0a12">
+  <meta name="associated-project" content="Prabir Hansda - https://prabirhansda.onrender.com">
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/deuh0g7ft/image/upload/v1747215213/downloadfile_2_xilghh.png">
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/deuh0g7ft/image/upload/v1747215213/downloadfile_2_xilghh.png">
+  <title>Prabir Hansda | Follow me for more!</title>
+  <link rel="canonical" href="https://prabirhansda.onrender.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--light);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .bio {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .link {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .link i {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            color: var(--light);
+            font-size: 22px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        .floating-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            animation: fadeIn 2s ease;
+            z-index: 10;
+    
+        }
+        footer a{
+            color: white;
+            opacity: 0.7;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-bg" id="floatingBg"></div>
+    
+    <div class="container">
+        <div class="profile" id="profile">
+            <img src="https://raw.githubusercontent.com/prabir-hansda/Hansda-Music-Player/refs/heads/main/My%20Sketch.jpg" alt="Profile" class="avatar" id="avatar">
+            <h1 id="username">PRABIR HANSDA</h1>
+            <p class="bio" id="bio">Digital creator | Content maker | Follow me for more!</p>
+        </div>
+        
+        <div class="links" id="links">
+            <a href="https://www.instagram.com/prabirhansda2" class="link" id="link1">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram Profile</span>
+            </a>
+            <a href="https://youtube.com/@vinesonlymusicvom?si=Aj0ufEQypOhO-4gh" class="link" id="link2">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube Channel</span>
+            </a>
+            
+            <a href="https://wa.me/message/J5FVKYINPDHFH1" class="link" id="link3">
+                <i class="fab fa-whatsapp"></i>
+                <span>WB Account</span>
+            </a>
+            <a href="https://x.com/PRABIRHANS18742" class="link" id="link4">
+                <i class="fab fa-twitter"></i>
+                <span>Twitter/X Profile</span>
+            </a>
+            <a href="https://shadowechoverse.onrender.com" class="link" id="link5">
+                <i class="fas fa-globe"></i>
+                <span>Personal Website</span>
+            </a>
+        </div>
+        
+        <div class="social-icons">
+            <a href="https://www.paypal.me/PRABIRHANSDA" class="social-icon"><i class="fab fa-paypal"></i></a>
+            
+            <a href="https://github.com/prabir-hansda" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://discord.gg/wwb2wARx" class="social-icon"><i class="fab fa-discord"></i></a>
+        </div>
+    </div>
+    
+    <footer>
+        <a href="myage.html">&copy; 2025 Prabir Hansda. All rights reserved.</a>
+    </footer>
+
+    <script>
+        // Create floating background circles with GSAP
+        document.addEventListener('DOMContentLoaded', () => {
+            const floatingBg = document.getElementById('floatingBg');
+            
+            // Create circles
+            for (let i = 0; i < 10; i++) {
+                const circle = document.createElement('div');
+                circle.classList.add('circle');
+                floatingBg.appendChild(circle);
+                
+                // Random properties
+                const size = Math.random() * 200 + 50;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                // Set initial styles
+                circle.style.width = `${size}px`;
+                circle.style.height = `${size}px`;
+                circle.style.left = `${posX}%`;
+                circle.style.top = `${posY}%`;
+                
+                // GSAP animation
+                gsap.to(circle, {
+                    x: gsap.utils.random(-50, 50),
+                    y: gsap.utils.random(-50, 50),
+                    duration: gsap.utils.random(10, 20),
+                    delay: delay,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            }
+            
+            // Profile animation with GSAP
+            gsap.to("#profile", {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "back.out(1.7)"
+            });
+            
+            // Links animation with GSAP
+            gsap.to("#links", {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+            
+            // Individual link animations with anime.js
+            const links = document.querySelectorAll('.link');
+            links.forEach((link, index) => {
+                link.addEventListener('mouseenter', () => {
+                    anime({
+                        targets: link,
+                        scale: 1.02,
+                        backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                        duration: 200,
+                        easing: 'easeOutQuad'
+                    });
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    anime({
+                        targets: link,
+                        scale: 1,
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        duration: 200,
+                        easing: 'easeOutQuad'
+                    });
+                });
+                
+                // Staggered appearance
+                anime({
+                    targets: link,
+                    translateY: [30, 0],
+                    opacity: [0, 1],
+                    delay: 400 + (index * 100),
+                    duration: 800,
+                    easing: 'easeOutExpo'
+                });
+            });
+            
+            // Social icons animation
+            const socialIcons = document.querySelectorAll('.social-icon');
+            socialIcons.forEach((icon, index) => {
+                anime({
+                    targets: icon,
+                    translateY: [20, 0],
+                    opacity: [0, 1],
+                    delay: 1000 + (index * 100),
+                    duration: 600,
+                    easing: 'easeOutBack'
+                });
+            });
+            
+            // Avatar pulse animation
+            const avatar = document.getElementById('avatar');
+            setInterval(() => {
+                anime({
+                    targets: avatar,
+                    scale: [1, 1.05, 1],
+                    duration: 2000,
+                    easing: 'easeInOutSine'
+                });
+            }, 5000);
+        });
+    </script>
+      <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Prabir Hansda",
+      "url": "https://prabirhansda.onrender.com",
+      "sameAs": [
+        "https://shadowechoverse.onrender.com/news.html",
+        "https://www.instagram.com/prabirhansda2"
+      ],
+      "jobTitle": "Digital Creator",
+      "description": "Prabir Hansda - Portfolio Website and digital content creator"
+    }
+    </script>
+</body>
+</html>
