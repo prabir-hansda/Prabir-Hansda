@@ -6,353 +6,419 @@
     <meta name="google-site-verification" content="7DQuYEwUYANzh3D6YfIhVHjl5gcqH1aLkLg1icCfGfc" />
     <meta name="google-site-verification" content="9rJu_cafZsztgwOcpiWxOJ0w5H71H_0JL58rBReseaQ" />
     <meta name="p:domain_verify" content="eac0d4c2d4b80f192fb6c64743f885ae"/>
-  <meta name="description" content="Explore official links of Prabir Hansda, social profiles and more. Explore all platforms from one place.">
-  <meta name="keywords" content="Prabir Hansda, Prabir, Hansda, links, social media, profile, music creator, digital artist">
-  <meta name="author" content="Prabir Hansda">
-  <meta property="og:image" content="https://raw.githubusercontent.com/prabir-hansda/Prabir-Hansda/refs/heads/main/1000096038.jpg">
-  <meta property="og:title" content="Prabir Hansda - Links & Socials">
-  <meta property="og:description" content="Explore all official links of Prabir Hansda in one place.">
-  <meta property="og:url" content="https://prabirhansda.onrender.com/">
-  <meta property="og:type" content="profile">
-  <meta property="profile:first_name" content="Prabir">
-  <meta property="profile:last_name" content="Hansda">
-  <meta property="profile:username" content="prabirhansda">
-  <meta property="profile:gender" content="male">
-  <meta property="og:see_also" content="https://www.instagram.com/prabirhansda2" />
-  <meta name="theme-color" content="#ff6b8b">
-  <meta name="associated-project" content="Prabir Hansda - https://prabirhansda.onrender.com">
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/deuh0g7ft/image/upload/v1747215213/downloadfile_2_xilghh.png">
-  <link rel="apple-touch-icon" href="https://res.cloudinary.com/deuh0g7ft/image/upload/v1747215213/downloadfile_2_xilghh.png">
-  <title>Prabir Hansda | Follow me for more!</title>
-  <link rel="canonical" href="https://prabirhansda.onrender.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <style>
-    :root {
-        --primary: #ff6b8b;
-        --secondary: #ffdc5e;
-        --accent: #5e87ff;
-        --dark: #553c8b;
-        --light: transparent;
-        --highlight: #a5ffd6;
-    }
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Comic Neue', cursive;
-    }
-    
-    body {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 100px;
-        color: var(--dark);
-        overflow-x: hidden;
-    }
-    
-    .cartoon-container {
-        width: 100%;
-        max-width: 500px;
-        position: relative;
-        z-index: 2;
-    }
-    
-    .cartoon-bubble {
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 30px;
-        padding: 25px;
-        margin-bottom: 25px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        border: 5px solid var(--dark);
-        position: relative;
-        transform-style: preserve-3d;
-    }
-    
-    .cartoon-bubble:after {
-        content: '';
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-width: 20px 20px 0;
-        border-style: solid;
-        border-color: var(--dark) transparent transparent;
-    }
-    
-    .profile {
-        text-align: center;
-        margin-bottom: 30px;
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    
-    .avatar {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 5px solid var(--dark);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        margin-bottom: 20px;
-        background: var(--light);
-        padding: 5px;
-        transform: rotate(5deg);
-    }
-    
-    h1 {
-        font-size: 32px;
-        margin-bottom: 10px;
-        font-weight: 700;
-        font-family: 'Fredoka', sans-serif;
-        color: var(--dark);
-        text-shadow: 3px 3px 0 var(--highlight);
-        letter-spacing: 1px;
-    }
-    
-    .bio {
-        font-size: 18px;
-        margin-bottom: 20px;
-        color: var(--dark);
-        font-weight: 500;
-    }
-    
-    .links {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    
-    .cartoon-link {
-        background: var(--light);
-        border-radius: 20px;
-        padding: 18px 25px;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: var(--dark);
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 0 var(--dark);
-        border: 3px solid var(--dark);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .cartoon-link:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-        transform: translateX(-100%);
-    }
-    
-    .cartoon-link:hover {
-        transform: translateY(5px);
-        box-shadow: 0 3px 0 var(--dark);
-    }
-    
-    .cartoon-link:hover:before {
-        animation: shimmer 0.8s ease;
-    }
-    
-    .cartoon-link i {
-        font-size: 28px;
-        margin-right: 15px;
-        width: 35px;
-        text-align: center;
-        color: var(--accent);
-        text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-    }
-    
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        margin-top: 30px;
-    }
-    
-    .social-icon {
-        color: var(--dark);
-        font-size: 28px;
-        transition: all 0.3s ease;
-        text-shadow: 2px 2px 0 var(--highlight);
-        background: var(--light);
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        border: 3px solid var(--dark);
-        box-shadow: 0 5px 0 var(--dark);
-        text-decoration: #a5ffd6;
-    }
-    
-    .social-icon:hover {
-        color: var(--primary);
-        transform: translateY(3px) scale(1.1);
-        box-shadow: 0 2px 0 var(--dark);
-    }
-    
-    .floating-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-    }
-    
-    .cartoon-element {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        border: 3px dashed var(--dark);
-        animation: float 15s infinite ease-in-out;
-    }
-    
-    .cartoon-star {
-        position: absolute;
-        background: var(--highlight);
-        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        animation: spin 20s infinite linear;
-    }
-    
-    footer {
-        margin-top: 40px;
-        text-align: center;
-        font-size: 16px;
-        position: fixed;
-        bottom: 15px;
-        right: 15px;
-        animation: fadeIn 2s ease;
-        z-index: 10;
-        background: var(--light);
-        padding: 8px 15px;
-        border-radius: 20px;
-        border: 3px solid var(--dark);
-        box-shadow: 0 5px 0 var(--dark);
-    }
-    
-    footer a {
-        color: var(--dark);
-        opacity: 0.9;
-        text-decoration: none;
-        font-weight: 600;
-    }
-    
-    /* Music Player Styles */
-    .music-player {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        background: var(--light);
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 3px solid var(--dark);
-        box-shadow: 0 5px 0 var(--dark);
-        cursor: pointer;
-        z-index: 100;
-        transition: all 0.3s ease;
-        background: rgb(232, 19, 193);
-    }
-    
-    .music-player:hover {
-        transform: scale(1.1);
-    }
-    
-    .music-icon {
-        font-size: 20px;
-        color: var(--dark);
-    }
-    
-    .pulse {
-        animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
-    
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0) rotate(0deg);
+    <meta name="description" content="Explore official links of Prabir Hansda, social profiles and more. Explore all platforms from one place.">
+    <meta name="keywords" content="Prabir Hansda, Prabir, Hansda, links, social media, profile, music creator, digital artist">
+    <meta name="author" content="Prabir Hansda">
+    <meta property="og:image" content="https://raw.githubusercontent.com/prabir-hansda/Prabir-Hansda/refs/heads/main/1000096038.jpg">
+    <meta property="og:title" content="Prabir Hansda - Links & Socials">
+    <meta property="og:description" content="Explore all official links of Prabir Hansda in one place.">
+    <meta property="og:url" content="https://prabirhansda.onrender.com/">
+    <meta property="og:type" content="profile">
+    <meta property="profile:first_name" content="Prabir">
+    <meta property="profile:last_name" content="Hansda">
+    <meta property="profile:username" content="prabirhansda">
+    <meta property="profile:gender" content="male">
+    <meta property="og:see_also" content="https://www.instagram.com/prabirhansda2" />
+    <meta name="theme-color" content="#ff6b8b">
+    <meta name="associated-project" content="Prabir Hansda - https://prabirhansda.onrender.com">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/deuh0g7ft/image/upload/v1747215213/downloadfile_2_xilghh.png">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/deuh0g7ft/image/upload/v1747215213/downloadfile_2_xilghh.png">
+    <title>Prabir Hansda | Follow me for more!</title>
+    <link rel="canonical" href="https://prabirhansda.onrender.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        :root {
+            --primary: #ff6b8b;
+            --secondary: #ffdc5e;
+            --accent: #5e87ff;
+            --dark: #553c8b;
+            --light: transparent;
+            --highlight: #a5ffd6;
         }
-        50% {
-            transform: translateY(-20px) rotate(10deg);
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', cursive;
         }
-    }
-    
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--dark);
+            overflow-x: hidden;
         }
-        100% {
-            transform: rotate(360deg);
+        
+        .cartoon-container {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
         }
-    }
-    
-    @keyframes shimmer {
-        100% {
-            transform: translateX(100%);
+        
+        .cartoon-bubble {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 30px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border: 5px solid var(--dark);
+            position: relative;
+            transform-style: preserve-3d;
         }
-    }
-    
-    @keyframes bounce {
-        0%, 100% {
-            transform: translateY(0);
+        
+        .cartoon-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 20px 20px 0;
+            border-style: solid;
+            border-color: var(--dark) transparent transparent;
         }
-        50% {
-            transform: translateY(-10px);
+        
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+            transform: translateY(-50px);
+            opacity: 0;
         }
-    }
-    
-    .bounce {
-        animation: bounce 3s infinite ease-in-out;
-    }
-    
-    .wiggle {
-        display: inline-block;
-        animation: wiggle 5s infinite ease-in-out;
-    }
-    
-    @keyframes wiggle {
-        0%, 92%, 96%, 100% {
-            transform: rotate(0);
+        
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            background: var(--light);
+            padding: 5px;
+            transform: rotate(5deg);
         }
-        94% {
-            transform: rotate(2deg);
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-family: 'Fredoka', sans-serif;
+            color: var(--dark);
+            text-shadow: 3px 3px 0 var(--highlight);
+            letter-spacing: 1px;
         }
-        98% {
-            transform: rotate(-2deg);
+        
+        .bio {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 500;
         }
-    }
-  </style>
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .cartoon-link {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 0 var(--dark);
+            border: 3px solid var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cartoon-link:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .cartoon-link:hover {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 var(--dark);
+        }
+        
+        .cartoon-link:hover:before {
+            animation: shimmer 0.8s ease;
+        }
+        
+        .cartoon-link i {
+            font-size: 28px;
+            margin-right: 15px;
+            width: 35px;
+            text-align: center;
+            color: var(--accent);
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            color: var(--dark);
+            font-size: 28px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 0 var(--highlight);
+            background: var(--light);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 3px solid var(--dark);
+            box-shadow: 0 5px 0 var(--dark);
+            text-decoration: #a5ffd6;
+        }
+        
+        .social-icon:hover {
+            color: var(--primary);
+            transform: translateY(3px) scale(1.1);
+            box-shadow: 0 2px 0 var(--dark);
+        }
+        
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .cartoon-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 3px dashed var(--dark);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .cartoon-star {
+            position: absolute;
+            background: var(--highlight);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: spin 20s infinite linear;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 16px;
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            animation: fadeIn 2s ease;
+            z-index: 10;
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 3px solid var(--dark);
+            box-shadow: 0 5px 0 var(--dark);
+        }
+        
+        footer a {
+            color: var(--dark);
+            opacity: 0.9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Music Player Styles */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--light);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--dark);
+            box-shadow: 0 5px 0 var(--dark);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .music-player:hover {
+            transform: scale(1.1);
+        }
+        
+        .music-icon {
+            font-size: 20px;
+            color: var(--dark);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Welcome overlay for music */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(85, 60, 139, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .welcome-overlay h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0 var(--primary);
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .welcome-overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        
+        .start-button {
+            background: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 3px solid var(--dark);
+            box-shadow: 0 8px 0 var(--dark);
+            transition: all 0.2s;
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .start-button:hover {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 var(--dark);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .bounce {
+            animation: bounce 3s infinite ease-in-out;
+        }
+        
+        .wiggle {
+            display: inline-block;
+            animation: wiggle 5s infinite ease-in-out;
+        }
+        
+        @keyframes wiggle {
+            0%, 92%, 96%, 100% {
+                transform: rotate(0);
+            }
+            94% {
+                transform: rotate(2deg);
+            }
+            98% {
+                transform: rotate(-2deg);
+            }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        .fade-out {
+            animation: fadeOut 1s forwards;
+        }
+    </style>
 </head>
 <body>
     <div class="floating-bg" id="floatingBg"></div>
+    
+    <!-- Welcome Overlay -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <h2>Welcome to My Page!</h2>
+        <p>Enjoy music while browsing my links and content.<br> Click the button below to enter.</p>
+        <button class="start-button" id="startButton">Enter Site</button>
+    </div>
     
     <div class="cartoon-container">
         <div class="cartoon-bubble">
@@ -410,6 +476,7 @@
     <!-- Audio Element -->
     <audio id="backgroundMusic" loop>
         <source src="https://github.com/prabir-hansda/Prabir-Hansda/raw/refs/heads/main/Abhishek%20Singh%20%20-%20Mai%20Ghaat%20Banaras%20Ka%20%EF%BD%9C%20Abhishek%20Singh.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
 
     <script>
@@ -418,21 +485,34 @@
             const floatingBg = document.getElementById('floatingBg');
             const musicToggle = document.getElementById('musicToggle');
             const backgroundMusic = document.getElementById('backgroundMusic');
+            const welcomeOverlay = document.getElementById('welcomeOverlay');
+            const startButton = document.getElementById('startButton');
             
             // Setup music player
             function setupMusicPlayer() {
-                // Try to auto-play music
+                // Play music function
                 const playMusic = () => {
                     backgroundMusic.volume = 0.3; // Set volume to 30%
                     backgroundMusic.play().then(() => {
                         musicToggle.classList.add('pulse');
                     }).catch(error => {
-                        console.log('Auto-play was prevented:', error);
+                        console.log('Play was prevented:', error);
                     });
                 };
                 
-                // Attempt to play music when page loads
-                playMusic();
+                // Start button event
+                startButton.addEventListener('click', function() {
+                    // Hide welcome overlay
+                    welcomeOverlay.classList.add('fade-out');
+                    
+                    // Play music
+                    playMusic();
+                    
+                    // Remove overlay after animation
+                    setTimeout(() => {
+                        welcomeOverlay.style.display = 'none';
+                    }, 1000);
+                });
                 
                 // Add click event to toggle music
                 musicToggle.addEventListener('click', function() {
