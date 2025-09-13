@@ -200,7 +200,7 @@
         border-radius: 50%;
         border: 3px solid var(--dark);
         box-shadow: 0 5px 0 var(--dark);
-        text-decoration: #5e87ff;
+        text-decoration: #a5ffd6;
     }
     
     .social-icon:hover {
@@ -255,6 +255,44 @@
         opacity: 0.9;
         text-decoration: none;
         font-weight: 600;
+    }
+    
+    /* Music Player Styles */
+    .music-player {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: var(--light);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid var(--dark);
+        box-shadow: 0 5px 0 var(--dark);
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s ease;
+    }
+    
+    .music-player:hover {
+        transform: scale(1.1);
+    }
+    
+    .music-icon {
+        font-size: 20px;
+        color: var(--dark);
+    }
+    
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
     }
     
     @keyframes float {
@@ -329,7 +367,7 @@
                 <i class="fab fa-instagram"></i>
                 <span>Instagram Profile</span>
             </a>
-            <a href="https://www.youtube.com/@TheNexusSphere" class="cartoon-link" id="link2">
+            <a href="https://youtube.com/@vinesonlymusicvom?si=Aj0ufEQypOhO-4gh" class="cartoon-link" id="link2">
                 <i class="fab fa-youtube"></i>
                 <span>YouTube Channel</span>
             </a>
@@ -362,11 +400,51 @@
     <footer>
         <a href="myage.html">&copy; 2025 Prabir Hansda. All rights reserved.</a>
     </footer>
+    
+    <!-- Music Player -->
+    <div class="music-player" id="musicToggle">
+        <i class="music-icon fas fa-music"></i>
+    </div>
+    
+    <!-- Audio Element -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://github.com/prabir-hansda/Prabir-Hansda/raw/refs/heads/main/Abhishek%20Singh%20%20-%20Mai%20Ghaat%20Banaras%20Ka%20%EF%BD%9C%20Abhishek%20Singh.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
         // Create floating cartoon background elements
         document.addEventListener('DOMContentLoaded', () => {
             const floatingBg = document.getElementById('floatingBg');
+            const musicToggle = document.getElementById('musicToggle');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            
+            // Setup music player
+            function setupMusicPlayer() {
+                // Try to auto-play music
+                const playMusic = () => {
+                    backgroundMusic.volume = 0.3; // Set volume to 30%
+                    backgroundMusic.play().then(() => {
+                        musicToggle.classList.add('pulse');
+                    }).catch(error => {
+                        console.log('Auto-play was prevented:', error);
+                    });
+                };
+                
+                // Attempt to play music when page loads
+                playMusic();
+                
+                // Add click event to toggle music
+                musicToggle.addEventListener('click', function() {
+                    if (backgroundMusic.paused) {
+                        backgroundMusic.play();
+                        this.classList.add('pulse');
+                    } else {
+                        backgroundMusic.pause();
+                        this.classList.remove('pulse');
+                    }
+                });
+            }
             
             // Create circles and stars
             for (let i = 0; i < 15; i++) {
@@ -414,6 +492,9 @@
                     circle.style.animationDelay = `${delay}s`;
                 }
             }
+            
+            // Setup music player
+            setupMusicPlayer();
             
             // Profile animation with GSAP
             gsap.to("#profile", {
