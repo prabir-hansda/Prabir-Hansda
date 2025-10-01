@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website Projects - Animated Portfolio Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #2D3436;
+            --light: #F7F7F7;
+            --purple: #A8E6CF;
+            --pink: #FFB6C1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Elements */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape1 {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 120px;
+            height: 120px;
+            background: var(--secondary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .shape3 {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 5s;
+        }
+
+        .shape4 {
+            width: 150px;
+            height: 150px;
+            background: var(--purple);
+            border-radius: 50%;
+            top: 40%;
+            right: 30%;
+            animation-delay: 7s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(30px) rotate(240deg);
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-container {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            animation: wiggle 2s ease-in-out infinite;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes wiggle {
+            0%, 100% {
+                transform: rotate(-2deg);
+            }
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+
+        .subtitle {
+            color: var(--accent);
+            font-size: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin: 2rem 0;
+            animation: title-float 3s ease-in-out infinite;
+        }
+
+        @keyframes title-float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            animation: slideUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+            animation: gradient-rotate 3s linear infinite;
+        }
+
+        @keyframes gradient-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            animation: badge-bounce 2s infinite;
+        }
+
+        @keyframes badge-bounce {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-icon {
+            font-size: 1.8rem;
+            animation: icon-spin 3s linear infinite;
+        }
+
+        @keyframes icon-spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-link::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: right 0.3s;
+        }
+
+        .project-link:hover::after {
+            right: 10px;
+        }
+
+        .project-link:hover {
+            background: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 100px;
+            height: 100px;
+            border: 10px solid rgba(255,255,255,0.3);
+            border-top: 10px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-image {
+                height: 200px;
+                font-size: 4rem;
+            }
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateX(400px);
+            transition: transform 0.3s;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast-icon {
+            font-size: 1.5rem;
+        }
+
+        .toast-message {
+            color: var(--dark);
+            font-weight: bold;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            color: var(--dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2 style="color: white; font-size: 2rem;">Loading Your Websites...</h2>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">🌐</div>
+        </div>
+        <h1>My Website Projects</h1>
+        <p class="subtitle">Where All My Web Creations Come to Life!</p>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <h2 class="section-title">🚀 Explore My Web Universe</h2>
+        
+        <!-- Projects Grid -->
+        <section class="projects-grid" id="projectsGrid">
+            <!-- Project Card 1: The AirWaves FM -->
+            <article class="project-card">
+                <div class="project-image">
+                    <span style="font-size: 5rem;">📻</span>
+                    <span class="project-badge">Live</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">
+                        <span class="project-icon">🎵</span>
+                        The AirWaves FM
+                    </h3>
+                    <p class="project-description">
+                        Tune into the ultimate online radio experience! Stream live music, discover new artists, and enjoy curated playlists with animated visualizers and real-time song information. Your personal radio station that never stops playing!
+                    </p>
+                    <a href="https://prabir-hansda.github.io/The-AirWaves-FM/" class="project-link" target="_blank" onclick="visitProject('The AirWaves FM');">
+                        Visit Website
+                    </a>
+                </div>
+            </article>
+
+            <!-- Project Card 2: ShadowEchoVerse -->
+            <article class="project-card">
+                <div class="project-image">
+                    <span style="font-size: 5rem;">🌌</span>
+                    <span class="project-badge">Featured</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">
+                        <span class="project-icon">🎭</span>
+                        ShadowEchoVerse
+                    </h3>
+                    <p class="project-description">
+                        ShadowEchoVerse is a creative digital space by Prabir Hansda. It brings together web design, music, videos, and coding experiments. A portfolio and personal hub that reflects passion, growth, and digital expression.
+                    </p>
+                    <a href="https://shadowechoverse.onrender.com/" class="project-link" target="_blank" onclick="visitProject('ShadowEchoVerse');">
+                        Enter Universe
+                    </a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Empty footer for spacing -->
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">🎉</span>
+        <span class="toast-message" id="toastMessage">Welcome!</span>
+        <button class="toast-close" onclick="hideToast()">×</button>
+    </div>
+
+    <script>
+        // Hide loader after page loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                showToast('Welcome to Your Website Universe! 🌐');
+            }, 1500);
+        });
+
+        // Visit project
+        function visitProject(projectName) {
+            showToast(`Opening ${projectName}... 🌟`);
+            // In a real application, this would navigate to the project
+            setTimeout(() => {
+                showToast(`${projectName} is ready for exploration! 🚀`);
+            }, 1000);
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                hideToast();
+            }, 5000);
+        }
+
+        // Hide toast notification
+        function hideToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('show');
+        }
+
+        // Add parallax effect to floating shapes
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.floating-shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 10; // Reduced speed for smoother effect
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                
+                // Only apply parallax if not already animating
+                if (!shape.style.animationPlayState || shape.style.animationPlayState !== 'paused') {
+                    shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+                }
+            });
+        });
+
+        // Add click animation to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('project-link')) {
+                    this.style.animation = 'none';
+                    setTimeout(() => {
+                        this.style.animation = 'bounce 0.5s';
+                    }, 10);
+                }
+            });
+        });
+
+        // Create floating particles
+        let particleInterval;
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '10px';
+            particle.style.height = '10px';
+            particle.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            particle.style.zIndex = '1';
+            document.body.appendChild(particle);
+            
+            const duration = Math.random() * 3 + 2;
+            particle.animate([
+                { transform: 'translateY(0) scale(1)', opacity: 1 },
+                { transform: `translateY(-${window.innerHeight + 100}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: duration * 1000,
+                easing: 'ease-out'
+            }).onfinish = () => particle.remove();
+        }
+
+        // Create particles periodically (less frequently for better performance)
+        function startParticleAnimation() {
+            particleInterval = setInterval(createParticle, 1000);
+        }
+
+        // Stop particle animation when page is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(particleInterval);
+            } else {
+                startParticleAnimation();
+            }
+        });
+
+        // Start particle animation
+        startParticleAnimation();
+
+        // Easter egg: Konami code
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    activateEasterEgg();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function activateEasterEgg() {
+            // Create a temporary rainbow overlay instead of affecting the whole body
+            const rainbowOverlay = document.createElement('div');
+            rainbowOverlay.style.position = 'fixed';
+            rainbowOverlay.style.top = '0';
+            rainbowOverlay.style.left = '0';
+            rainbowOverlay.style.width = '100%';
+            rainbowOverlay.style.height = '100%';
+            rainbowOverlay.style.pointerEvents = 'none';
+            rainbowOverlay.style.zIndex = '999';
+            rainbowOverlay.style.animation = 'rainbow 5s linear';
+            document.body.appendChild(rainbowOverlay);
+            
+            showToast('🌈 Rainbow Mode Activated! You found the secret! 🎉');
+            
+            // Create explosion of particles
+            for (let i = 0; i < 50; i++) {
+                setTimeout(createParticle, i * 50);
+            }
+            
+            setTimeout(() => {
+                rainbowOverlay.remove();
+            }, 5000);
+        }
+
+        // Add rainbow animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { opacity: 0; filter: hue-rotate(0deg); }
+                10% { opacity: 0.5; }
+                50% { opacity: 0.3; filter: hue-rotate(180deg); }
+                90% { opacity: 0.5; }
+                100% { opacity: 0; filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
