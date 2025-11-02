@@ -1,752 +1,255 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website Projects</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Project Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #FF6B6B;
-            --secondary: #4ECDC4;
-            --accent: #FFE66D;
-            --dark: #2D3436;
-            --light: #F7F7F7;
-            --purple: #A8E6CF;
-            --pink: #FFB6C1;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animated Background Elements */
-        .bg-animation {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .floating-shape {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .shape1 {
-            width: 80px;
-            height: 80px;
-            background: var(--accent);
-            border-radius: 50%;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape2 {
-            width: 120px;
-            height: 120px;
-            background: var(--secondary);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            top: 60%;
-            right: 10%;
-            animation-delay: 3s;
-        }
-
-        .shape3 {
-            width: 100px;
-            height: 100px;
-            background: var(--primary);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 5s;
-        }
-
-        .shape4 {
-            width: 150px;
-            height: 150px;
-            background: var(--purple);
-            border-radius: 50%;
-            top: 40%;
-            right: 30%;
-            animation-delay: 7s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            33% {
-                transform: translateY(-30px) rotate(120deg);
-            }
-            66% {
-                transform: translateY(30px) rotate(240deg);
-            }
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .logo-container {
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .logo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin: 0 auto 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: translateX(-100%);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        h1 {
-            color: white;
-            font-size: 3rem;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
-            animation: wiggle 2s ease-in-out infinite;
-            margin-bottom: 0.5rem;
-        }
-
-        @keyframes wiggle {
-            0%, 100% {
-                transform: rotate(-2deg);
-            }
-            50% {
-                transform: rotate(2deg);
-            }
-        }
-
-        .subtitle {
-            color: var(--accent);
-            font-size: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Section Title */
-        .section-title {
-            text-align: center;
-            color: white;
-            font-size: 2.5rem;
-            margin: 2rem 0;
-            animation: title-float 3s ease-in-out infinite;
-        }
-
-        @keyframes title-float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            padding: 2rem 0;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-            animation: slideUp 0.6s ease-out;
-            animation-fill-mode: both;
-        }
-
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
-            border-radius: 20px;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.3s;
-            animation: gradient-rotate 3s linear infinite;
-        }
-
-        @keyframes gradient-rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--accent);
-            color: var(--dark);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            animation: badge-bounce 2s infinite;
-        }
-
-        @keyframes badge-bounce {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-title {
-            font-size: 1.8rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-icon {
-            font-size: 1.8rem;
-            animation: icon-spin 3s linear infinite;
-        }
-
-        @keyframes icon-spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .project-description {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-link::after {
-            content: '→';
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: right 0.3s;
-        }
-
-        .project-link:hover::after {
-            right: 10px;
-        }
-
-        .project-link:hover {
-            background: var(--secondary);
-            transform: translateX(5px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: white;
-            position: relative;
-            margin-top: 3rem;
-        }
-
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader-content {
-            text-align: center;
-        }
-
-        .loader-spinner {
-            width: 100px;
-            height: 100px;
-            border: 10px solid rgba(255,255,255,0.3);
-            border-top: 10px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 2rem;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .project-image {
-                height: 200px;
-                font-size: 4rem;
-            }
-        }
-
-        /* Notification Toast */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transform: translateX(400px);
-            transition: transform 0.3s;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .toast-icon {
-            font-size: 1.5rem;
-        }
-
-        .toast-message {
-            color: var(--dark);
-            font-weight: bold;
-        }
-
-        .toast-close {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 0.5rem;
-            color: var(--dark);
-        }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #111827; /* A dark gray-blue */
+        color: #e5e7eb; /* text-gray-200 */
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
+        100% { transform: translateY(0px) rotate(360deg); }
+      }
+      @keyframes subtle-float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      .animate-float {
+        animation: float 25s infinite ease-in-out;
+      }
+      .animate-subtle-float {
+        animation: subtle-float 6s ease-in-out infinite;
+      }
+      /* Custom styles for transitions */
+      .card-enter {
+        opacity: 0;
+        transform: translateY(2.5rem); /* translate-y-10 */
+      }
+      .card-enter-active {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 700ms ease-out;
+      }
+      .toast-hidden {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      .toast-visible {
+        transform: translateX(0);
+        opacity: 1;
+      }
     </style>
+<script type="importmap">
+
+</script>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <h2 style="color: white; font-size: 2rem;">Loading Your Websites...</h2>
-        </div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500 opacity-100">
+      <div class="w-16 h-16 border-4 border-gray-600 border-t-gray-200 rounded-full animate-spin mb-6"></div>
+      <h2 class="text-2xl font-semibold text-gray-300">Loading Portfolio...</h2>
     </div>
 
     <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="floating-shape shape1"></div>
-        <div class="floating-shape shape2"></div>
-        <div class="floating-shape shape3"></div>
-        <div class="floating-shape shape4"></div>
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-[10%] left-[5%] w-48 h-48 bg-gray-700/10 rounded-full animate-float" style="animation-delay: 0s;"></div>
+      <div class="absolute top-[60%] right-[10%] w-64 h-64 bg-gray-700/10 rounded-full animate-float" style="animation-delay: 5s;"></div>
+      <div class="absolute bottom-[20%] left-[20%] w-32 h-32 bg-gray-700/10 rounded-full animate-float" style="animation-delay: 10s;"></div>
+      <div class="absolute top-[40%] right-[30%] w-40 h-40 bg-gray-700/10 rounded-full animate-float" style="animation-delay: 15s;"></div>
     </div>
 
-    <!-- Header -->
-    <header>
-        <div class="logo-container">
-            <div class="logo">🌐</div>
-        </div>
-        <h1>My Website Projects</h1>
-        <p class="subtitle">Where All My Web Creations Come to Life!</p>
-    </header>
-
-    <!-- Main Container -->
-    <main class="container">
-        <h2 class="section-title">🚀 Explore My Web Universe</h2>
-        
-        <!-- Projects Grid -->
-        <section class="projects-grid" id="projectsGrid">
-            <!-- Project Card 1: The AirWaves FM -->
-            <article class="project-card">
-                <div class="project-image">
-                    <span style="font-size: 5rem;">📻</span>
-                    <span class="project-badge">Live</span>
+    <div class="relative z-10">
+        <!-- Header -->
+        <header class="text-center py-16 px-6">
+            <div class="inline-block mb-6 transition-transform duration-500 hover:scale-110 hover:rotate-6">
+                <div class="p-1 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 shadow-lg">
+                    <div class="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center">
+                        <svg class="w-12 h-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9M3 12a9 9 0 019-9m-9 9a9 9 0 009 9m-9-9h18"></path>
+                        </svg>
+                    </div>
                 </div>
-                <div class="project-content">
-                    <h3 class="project-title">
-                        <span class="project-icon">🎵</span>
-                        The AirWaves FM
-                    </h3>
-                    <p class="project-description">
-                        Tune into the ultimate online radio experience! Stream live music, discover new artists, and enjoy curated playlists with animated visualizers and real-time song information. Your personal radio station that never stops playing!
-                    </p>
-                    <a href="https://prabir-hansda.github.io/The-AirWaves-FM/" class="project-link" target="_blank" onclick="visitProject('The AirWaves FM');">
-                        Visit Website
-                    </a>
-                </div>
-            </article>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-4">
+                Project Showcase
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+                A curated collection of my creations in the digital realm.
+            </p>
+        </header>
 
-            <!-- Project Card 2: ShadowEchoVerse -->
-            <article class="project-card">
-                <div class="project-image">
-                    <span style="font-size: 5rem;">🌌</span>
-                    <span class="project-badge">Featured</span>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">
-                        <span class="project-icon">🎭</span>
-                        ShadowEchoVerse
-                    </h3>
-                    <p class="project-description">
-                        ShadowEchoVerse is a creative digital space by Prabir Hansda. It brings together web design, music, videos, and coding experiments. A portfolio and personal hub that reflects passion, growth, and digital expression.
-                    </p>
-                    <a href="https://shadowechoverse.onrender.com/" class="project-link" target="_blank" onclick="visitProject('ShadowEchoVerse');">
-                        Enter Universe
-                    </a>
-                </div>
-            </article>
-        </section>
-    </main>
+        <!-- Main Content -->
+        <main class="container mx-auto px-6 py-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white mb-16 animate-subtle-float">
+                My Digital Craft
+            </h2>
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16" id="projectsGrid"></section>
+        </main>
 
-    <!-- Footer -->
-    <footer>
-        <!-- Empty footer for spacing -->
-    </footer>
+        <!-- Footer -->
+        <footer class="text-center py-10 mt-16 text-gray-500">
+            <p>&copy; <span id="currentYear"></span> All rights reserved.</p>
+        </footer>
+    </div>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <span class="toast-icon">🎉</span>
-        <span class="toast-message" id="toastMessage">Welcome!</span>
-        <button class="toast-close" onclick="hideToast()">×</button>
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-8 right-8 z-50 flex items-center gap-4 bg-gray-800 border border-gray-700 text-white py-3 px-6 rounded-lg shadow-2xl transition-all duration-300 ease-in-out toast-hidden">
+        <svg class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+        </svg>
+        <span id="toastMessage" class="font-semibold"></span>
+        <button id="toastClose" class="ml-4 text-gray-500 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
     </div>
 
     <script>
-        // Hide loader after page loads
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-                showToast('Welcome to Your Website Universe! 🌐');
-            }, 1500);
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DATA & ICONS ---
+            const ICONS = {
+                RadioIcon: `<svg class="w-20 h-20 text-gray-500 transition-all duration-500 group-hover:scale-110 group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                            </svg>`,
+                UniverseIcon: `<svg class="w-20 h-20 text-gray-500 transition-all duration-500 group-hover:scale-110 group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.293 2.293a1 1 0 01-.707 1.707H13.414a1 1 0 01-.707-1.707L15 3zm-3.121 11.879l-2.173 2.172a1 1 0 01-1.414 0l-2.172-2.172a1 1 0 010-1.414l2.172-2.172a1 1 0 011.414 0l2.172 2.172a1 1 0 010 1.414zM15 21l2.293-2.293a1 1 0 01.707-1.707h-4.586a1 1 0 01-.707 1.707L15 21z" />
+                                </svg>`,
+                ArrowRightIcon: `<svg class="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>`
+            };
 
-        // Visit project
-        function visitProject(projectName) {
-            showToast(`Opening ${projectName}... 🌟`);
-            // In a real application, this would navigate to the project
-            setTimeout(() => {
-                showToast(`${projectName} is ready for exploration! 🚀`);
-            }, 1000);
-        }
+            const PROJECTS = [
+                {
+                    id: 1,
+                    title: 'The AirWaves FM',
+                    description: 'Tune into the ultimate online radio experience! Stream live music, discover new artists, and enjoy curated playlists with animated visualizers and real-time song information.',
+                    link: 'https://prabir-hansda.github.io/The-AirWaves-FM/',
+                    badge: 'Live',
+                    icon: ICONS.RadioIcon,
+                },
+                {
+                    id: 2,
+                    title: 'ShadowEchoVerse',
+                    description: 'A creative digital space that brings together web design, music, videos, and coding experiments. A portfolio and personal hub that reflects passion, growth, and digital expression.',
+                    link: 'https://shadowechoverse.onrender.com/',
+                    badge: 'Featured',
+                    icon: ICONS.UniverseIcon,
+                },
+            ];
 
-        // Show toast notification
-        function showToast(message) {
+            // --- UI ELEMENTS ---
+            const loader = document.getElementById('loader');
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toastMessage');
+            const toastClose = document.getElementById('toastClose');
+            const projectsGrid = document.getElementById('projectsGrid');
+            const currentYearSpan = document.getElementById('currentYear');
             
-            toastMessage.textContent = message;
-            toast.classList.add('show');
-            
-            // Auto-hide after 5 seconds
-            setTimeout(() => {
-                hideToast();
-            }, 5000);
-        }
+            let toastTimeout;
 
-        // Hide toast notification
-        function hideToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.remove('show');
-        }
+            // --- TOAST FUNCTIONALITY ---
+            window.showToast = (message) => {
+                clearTimeout(toastTimeout);
+                toastMessage.textContent = message;
+                toast.classList.remove('toast-hidden');
+                toast.classList.add('toast-visible');
 
-        // Add parallax effect to floating shapes
-        document.addEventListener('mousemove', (e) => {
-            const shapes = document.querySelectorAll('.floating-shape');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 10; // Reduced speed for smoother effect
-                const xOffset = (x - 0.5) * speed;
-                const yOffset = (y - 0.5) * speed;
+                toastTimeout = setTimeout(() => {
+                    hideToast();
+                }, 5000);
+            };
+
+            const hideToast = () => {
+                toast.classList.remove('toast-visible');
+                toast.classList.add('toast-hidden');
+            };
+
+            toastClose.addEventListener('click', hideToast);
+
+            // --- PROJECT CARD RENDERING ---
+            const renderProjects = () => {
+                let projectsHTML = '';
+                PROJECTS.forEach((project) => {
+                    projectsHTML += `
+                        <article class="card-enter">
+                            <div class="group relative rounded-xl p-[2px] bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 hover:from-gray-600 hover:to-gray-800 transition-all duration-300">
+                                <div class="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-400 rounded-xl blur opacity-0 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                                <div class="relative bg-gray-900 rounded-lg overflow-hidden h-full flex flex-col">
+                                    <div class="h-48 bg-gray-800/50 flex items-center justify-center relative overflow-hidden border-b-2 border-gray-700/50">
+                                        ${project.icon}
+                                        <span class="absolute top-4 right-4 bg-gray-700 text-gray-200 px-3 py-1 text-sm font-semibold rounded-full">
+                                            ${project.badge}
+                                        </span>
+                                    </div>
+                                    <div class="p-8 flex-grow flex flex-col">
+                                        <h3 class="text-2xl font-bold text-white mb-3 flex items-center gap-3">
+                                            ${project.title}
+                                        </h3>
+                                        <p class="text-gray-400 leading-relaxed mb-6 flex-grow">
+                                            ${project.description}
+                                        </p>
+                                        <a
+                                            href="${project.link}"
+                                            class="group/link mt-auto inline-flex items-center gap-2 text-gray-300 font-semibold hover:text-white transition-colors duration-300"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onclick="showToast('Navigating to ${project.title}...')">
+                                            Visit Project
+                                            ${ICONS.ArrowRightIcon}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                });
+                projectsGrid.innerHTML = projectsHTML;
+            };
+
+            // --- INITIALIZATION ---
+            const init = () => {
+                // Set footer year
+                currentYearSpan.textContent = new Date().getFullYear();
+
+                // Render projects
+                renderProjects();
                 
-                // Only apply parallax if not already animating
-                if (!shape.style.animationPlayState || shape.style.animationPlayState !== 'paused') {
-                    shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-                }
-            });
+                // Hide loader and show welcome
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    loader.style.pointerEvents = 'none';
+                    showToast('Welcome to My Portfolio');
+
+                    // Animate project cards
+                    const cards = document.querySelectorAll('#projectsGrid article');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('card-enter-active');
+                            card.classList.remove('card-enter');
+                        }, index * 100);
+                    });
+                }, 1500);
+            };
+
+            init();
         });
-
-        // Add click animation to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if (!e.target.classList.contains('project-link')) {
-                    this.style.animation = 'none';
-                    setTimeout(() => {
-                        this.style.animation = 'bounce 0.5s';
-                    }, 10);
-                }
-            });
-        });
-
-        // Create floating particles
-        let particleInterval;
-        
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.position = 'fixed';
-            particle.style.width = '10px';
-            particle.style.height = '10px';
-            particle.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
-            particle.style.borderRadius = '50%';
-            particle.style.pointerEvents = 'none';
-            particle.style.left = Math.random() * window.innerWidth + 'px';
-            particle.style.top = window.innerHeight + 'px';
-            particle.style.zIndex = '1';
-            document.body.appendChild(particle);
-            
-            const duration = Math.random() * 3 + 2;
-            particle.animate([
-                { transform: 'translateY(0) scale(1)', opacity: 1 },
-                { transform: `translateY(-${window.innerHeight + 100}px) scale(0)`, opacity: 0 }
-            ], {
-                duration: duration * 1000,
-                easing: 'ease-out'
-            }).onfinish = () => particle.remove();
-        }
-
-        // Create particles periodically (less frequently for better performance)
-        function startParticleAnimation() {
-            particleInterval = setInterval(createParticle, 1000);
-        }
-
-        // Stop particle animation when page is not visible
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                clearInterval(particleInterval);
-            } else {
-                startParticleAnimation();
-            }
-        });
-
-        // Start particle animation
-        startParticleAnimation();
-
-        // Easter egg: Konami code
-        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        let konamiIndex = 0;
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === konamiCode[konamiIndex]) {
-                konamiIndex++;
-                if (konamiIndex === konamiCode.length) {
-                    activateEasterEgg();
-                    konamiIndex = 0;
-                }
-            } else {
-                konamiIndex = 0;
-            }
-        });
-
-        function activateEasterEgg() {
-            // Create a temporary rainbow overlay instead of affecting the whole body
-            const rainbowOverlay = document.createElement('div');
-            rainbowOverlay.style.position = 'fixed';
-            rainbowOverlay.style.top = '0';
-            rainbowOverlay.style.left = '0';
-            rainbowOverlay.style.width = '100%';
-            rainbowOverlay.style.height = '100%';
-            rainbowOverlay.style.pointerEvents = 'none';
-            rainbowOverlay.style.zIndex = '999';
-            rainbowOverlay.style.animation = 'rainbow 5s linear';
-            document.body.appendChild(rainbowOverlay);
-            
-            showToast('🌈 Rainbow Mode Activated! You found the secret! 🎉');
-            
-            // Create explosion of particles
-            for (let i = 0; i < 50; i++) {
-                setTimeout(createParticle, i * 50);
-            }
-            
-            setTimeout(() => {
-                rainbowOverlay.remove();
-            }, 5000);
-        }
-
-        // Add rainbow animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes rainbow {
-                0% { opacity: 0; filter: hue-rotate(0deg); }
-                10% { opacity: 0.5; }
-                50% { opacity: 0.3; filter: hue-rotate(180deg); }
-                90% { opacity: 0.5; }
-                100% { opacity: 0; filter: hue-rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
-
 </html>
