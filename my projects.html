@@ -1,256 +1,198 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Professional Project Portfolio</title>
+    <title>Prabir Hansda | Digital Creator</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-      body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #111827; /* A dark gray-blue */
-        color: #e5e7eb; /* text-gray-200 */
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-      @keyframes float {
-        0% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(180deg); }
-        100% { transform: translateY(0px) rotate(360deg); }
-      }
-      @keyframes subtle-float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-      }
-      .animate-float {
-        animation: float 25s infinite ease-in-out;
-      }
-      .animate-subtle-float {
-        animation: subtle-float 6s ease-in-out infinite;
-      }
-      /* Custom styles for transitions */
-      .card-enter {
-        opacity: 0;
-        transform: translateY(2.5rem); /* translate-y-10 */
-      }
-      .card-enter-active {
-        opacity: 1;
-        transform: translateY(0);
-        transition: all 700ms ease-out;
-      }
-      .toast-hidden {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      .toast-visible {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    </style>
-<script type="importmap">
+        :root {
+            --accent: #6366f1;
+            --bg-dark: #09090b;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #fafafa;
+            overflow-x: hidden;
+        }
 
-</script>
+        /* Animated Mesh Background */
+        .mesh-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 35%),
+                radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 35%);
+        }
+
+        /* Floating Animation */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        .animate-mesh { animation: float-slow 10s infinite ease-in-out; }
+
+        /* Glass Card Effect */
+        .glass-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Shimmer Button Effect */
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+        .btn-shimmer:hover::after {
+            left: 120%;
+        }
+
+        /* Entrance Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
 
-    <!-- Loader -->
-    <div id="loader" class="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500 opacity-100">
-      <div class="w-16 h-16 border-4 border-gray-600 border-t-gray-200 rounded-full animate-spin mb-6"></div>
-      <h2 class="text-2xl font-semibold text-gray-300">Loading Portfolio...</h2>
+    <div id="loader" class="fixed inset-0 bg-black z-50 flex items-center justify-center transition-opacity duration-700">
+        <div class="relative">
+            <div class="w-20 h-20 border-2 border-indigo-500/20 border-t-indigo-500 rounded-full animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-xs font-bold tracking-widest uppercase">PH</div>
+        </div>
     </div>
 
-    <!-- Animated Background -->
-    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-[10%] left-[5%] w-48 h-48 bg-gray-700/10 rounded-full animate-float" style="animation-delay: 0s;"></div>
-      <div class="absolute top-[60%] right-[10%] w-64 h-64 bg-gray-700/10 rounded-full animate-float" style="animation-delay: 5s;"></div>
-      <div class="absolute bottom-[20%] left-[20%] w-32 h-32 bg-gray-700/10 rounded-full animate-float" style="animation-delay: 10s;"></div>
-      <div class="absolute top-[40%] right-[30%] w-40 h-40 bg-gray-700/10 rounded-full animate-float" style="animation-delay: 15s;"></div>
-    </div>
+    <div class="mesh-bg animate-mesh"></div>
 
     <div class="relative z-10">
-        <!-- Header -->
-        <header class="text-center py-16 px-6">
-            <div class="inline-block mb-6 transition-transform duration-500 hover:scale-110 hover:rotate-6">
-                <div class="p-1 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 shadow-lg">
-                    <div class="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center">
-                        <svg class="w-12 h-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9M3 12a9 9 0 019-9m-9 9a9 9 0 009 9m-9-9h18"></path>
-                        </svg>
-                    </div>
-                </div>
+        <header class="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 reveal" id="hero">
+            <div class="mb-6 px-4 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-sm font-semibold tracking-wide">
+                Available for Projects
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-4">
-                Project Showcase
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500">
+                Prabir Hansda
             </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-                A curated collection of my creations in the digital realm.
+            <p class="text-xl text-gray-400 max-w-xl leading-relaxed">
+                Creative Digital Developer building modern experiences through code and visual storytelling.
             </p>
+            <div class="mt-10 flex gap-4">
+                <a href="#projects" class="px-8 py-3 rounded-full btn-shimmer font-bold text-white transition-all">View Work</a>
+                <button class="px-8 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all font-bold">Contact</button>
+            </div>
         </header>
 
-        <!-- Main Content -->
-        <main class="container mx-auto px-6 py-12">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white mb-16 animate-subtle-float">
-                My Digital Craft
-            </h2>
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16" id="projectsGrid"></section>
+        <main id="projects" class="container mx-auto px-6 py-24">
+            <div class="flex items-center gap-4 mb-16">
+                <h2 class="text-3xl font-bold">Featured Creations</h2>
+                <div class="h-[1px] flex-grow bg-gradient-to-r from-indigo-500/50 to-transparent"></div>
+            </div>
+            
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projectsGrid"></section>
         </main>
 
-        <!-- Footer -->
-        <footer class="text-center py-10 mt-16 text-gray-500">
-            <p>&copy; <span id="currentYear"></span> All rights reserved.</p>
+        <footer class="py-20 text-center border-t border-white/5">
+            <p class="text-gray-500">© <span id="year"></span> Designed with Passion by Prabir Hansda</p>
         </footer>
     </div>
 
-    <!-- Toast -->
-    <div id="toast" class="fixed bottom-8 right-8 z-50 flex items-center gap-4 bg-gray-800 border border-gray-700 text-white py-3 px-6 rounded-lg shadow-2xl transition-all duration-300 ease-in-out toast-hidden">
-        <svg class="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-        </svg>
-        <span id="toastMessage" class="font-semibold"></span>
-        <button id="toastClose" class="ml-4 text-gray-500 hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
+    <div id="toast" class="fixed bottom-10 right-10 bg-zinc-900 border border-indigo-500/50 text-white px-6 py-4 rounded-2xl shadow-2xl translate-x-[150%] transition-transform duration-500 z-50 flex items-center gap-3">
+        <div class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
+        <span id="toastMsg" class="text-sm font-medium"></span>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- DATA & ICONS ---
-            const ICONS = {
-                RadioIcon: `<svg class="w-20 h-20 text-gray-500 transition-all duration-500 group-hover:scale-110 group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                            </svg>`,
-                UniverseIcon: `<svg class="w-20 h-20 text-gray-500 transition-all duration-500 group-hover:scale-110 group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.293 2.293a1 1 0 01-.707 1.707H13.414a1 1 0 01-.707-1.707L15 3zm-3.121 11.879l-2.173 2.172a1 1 0 01-1.414 0l-2.172-2.172a1 1 0 010-1.414l2.172-2.172a1 1 0 011.414 0l2.172 2.172a1 1 0 010 1.414zM15 21l2.293-2.293a1 1 0 01.707-1.707h-4.586a1 1 0 01-.707 1.707L15 21z" />
-                                </svg>`,
-                ArrowRightIcon: `<svg class="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>`
-            };
+        const PROJECTS = [
+            {
+                title: 'The AirWaves FM',
+                desc: 'A premium audio streaming platform with high-fidelity visualizers and real-time metadata syncing.',
+                link: 'https://the-airwaves-fm.onrender.com/',
+                tag: 'Audio Engine',
+                icon: `<svg class="w-12 h-12 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="1" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z" /></svg>`
+            },
+            {
+                title: 'ShadowEchoVerse',
+                desc: 'An immersive digital ecosystem integrating creative coding, music, and experimental UI layouts.',
+                link: 'https://shadowechoverse.onrender.com/',
+                tag: 'Ecosystem',
+                icon: `<svg class="w-12 h-12 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="1" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>`
+            }
+        ];
 
-            const PROJECTS = [
-                {
-                    id: 1,
-                    title: 'The AirWaves FM',
-                    description: 'Tune into the ultimate online radio experience! Stream live music, discover new artists, and enjoy curated playlists with animated visualizers and real-time song information.',
-                    link: 'https://the-airwaves-fm.onrender.com/',
-                    badge: 'Live',
-                    icon: ICONS.RadioIcon,
-                },
-                {
-                    id: 2,
-                    title: 'ShadowEchoVerse',
-                    description: 'A creative digital space that brings together web design, music, videos, and coding experiments. A portfolio and personal hub that reflects passion, growth, and digital expression.',
-                    link: 'https://shadowechoverse.onrender.com/',
-                    badge: 'Featured',
-                    icon: ICONS.UniverseIcon,
-                },
-            ];
+        function init() {
+            // Render Projects
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = PROJECTS.map((p, i) => `
+                <div class="reveal" style="transition-delay: ${i * 200}ms">
+                    <div class="glass-card rounded-3xl p-8 h-full flex flex-col group">
+                        <div class="mb-8 p-4 bg-white/5 rounded-2xl w-fit group-hover:bg-indigo-500/10 transition-colors">
+                            ${p.icon}
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">${p.tag}</span>
+                        <h3 class="text-3xl font-bold mb-4">${p.title}</h3>
+                        <p class="text-gray-400 mb-8 flex-grow leading-relaxed">${p.desc}</p>
+                        <a href="${p.link}" target="_blank" 
+                           onclick="triggerToast('${p.title}')"
+                           class="inline-flex items-center text-white font-bold gap-2 group/link">
+                            Explore Project 
+                            <svg class="w-5 h-5 transform transition-transform group-hover/link:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
 
-            // --- UI ELEMENTS ---
-            const loader = document.getElementById('loader');
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            const toastClose = document.getElementById('toastClose');
-            const projectsGrid = document.getElementById('projectsGrid');
-            const currentYearSpan = document.getElementById('currentYear');
-            
-            let toastTimeout;
+            // Set Year
+            document.getElementById('year').textContent = new Date().getFullYear();
 
-            // --- TOAST FUNCTIONALITY ---
-            window.showToast = (message) => {
-                clearTimeout(toastTimeout);
-                toastMessage.textContent = message;
-                toast.classList.remove('toast-hidden');
-                toast.classList.add('toast-visible');
-
-                toastTimeout = setTimeout(() => {
-                    hideToast();
-                }, 5000);
-            };
-
-            const hideToast = () => {
-                toast.classList.remove('toast-visible');
-                toast.classList.add('toast-hidden');
-            };
-
-            toastClose.addEventListener('click', hideToast);
-
-            // --- PROJECT CARD RENDERING ---
-            const renderProjects = () => {
-                let projectsHTML = '';
-                PROJECTS.forEach((project) => {
-                    projectsHTML += `
-                        <article class="card-enter">
-                            <div class="group relative rounded-xl p-[2px] bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 hover:from-gray-600 hover:to-gray-800 transition-all duration-300">
-                                <div class="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-400 rounded-xl blur opacity-0 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                                <div class="relative bg-gray-900 rounded-lg overflow-hidden h-full flex flex-col">
-                                    <div class="h-48 bg-gray-800/50 flex items-center justify-center relative overflow-hidden border-b-2 border-gray-700/50">
-                                        ${project.icon}
-                                        <span class="absolute top-4 right-4 bg-gray-700 text-gray-200 px-3 py-1 text-sm font-semibold rounded-full">
-                                            ${project.badge}
-                                        </span>
-                                    </div>
-                                    <div class="p-8 flex-grow flex flex-col">
-                                        <h3 class="text-2xl font-bold text-white mb-3 flex items-center gap-3">
-                                            ${project.title}
-                                        </h3>
-                                        <p class="text-gray-400 leading-relaxed mb-6 flex-grow">
-                                            ${project.description}
-                                        </p>
-                                        <a
-                                            href="${project.link}"
-                                            class="group/link mt-auto inline-flex items-center gap-2 text-gray-300 font-semibold hover:text-white transition-colors duration-300"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onclick="showToast('Navigating to ${project.title}...')">
-                                            Visit Project
-                                            ${ICONS.ArrowRightIcon}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    `;
-                });
-                projectsGrid.innerHTML = projectsHTML;
-            };
-
-            // --- INITIALIZATION ---
-            const init = () => {
-                // Set footer year
-                currentYearSpan.textContent = new Date().getFullYear();
-
-                // Render projects
-                renderProjects();
-                
-                // Hide loader and show welcome
+            // Handling Entrance
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('opacity-0');
                 setTimeout(() => {
-                    loader.style.opacity = '0';
-                    loader.style.pointerEvents = 'none';
-                    showToast('Welcome to My Portfolio');
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('hero').classList.add('active');
+                    revealOnScroll();
+                }, 700);
+            }, 1500);
+        }
 
-                    // Animate project cards
-                    const cards = document.querySelectorAll('#projectsGrid article');
-                    cards.forEach((card, index) => {
-                        setTimeout(() => {
-                            card.classList.add('card-enter-active');
-                            card.classList.remove('card-enter');
-                        }, index * 100);
-                    });
-                }, 1500);
-            };
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) el.classList.add('active');
+            });
+        }
 
-            init();
-        });
+        function triggerToast(name) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = `Launching ${name}...`;
+            toast.style.transform = 'translateX(0)';
+            setTimeout(() => {
+                toast.style.transform = 'translateX(150%)';
+            }, 3000);
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
-
