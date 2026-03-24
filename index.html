@@ -1,304 +1,145 @@
 <!DOCTYPE html>
 <html lang="sat">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow">
-    
-    <title>Prabir Hansda | ᱯᱨᱚᱵᱤᱨ ᱦᱟᱸᱥᱫᱟᱜ</title>
-    <meta name="description" content="ᱯᱨᱚᱵᱤᱨ ᱦᱟᱸᱥᱫᱟᱜ ᱥᱟᱶ ᱡᱚᱨᱟᱣ ᱛᱟᱦᱮᱸᱱ ᱞᱟᱹᱜᱤᱫ ᱡᱚᱛᱚ ᱞᱤᱝᱠ ᱥᱮᱸᱫᱽᱨᱟ ᱧᱟᱢ ᱞᱮ᱾ ᱢᱤᱫ ᱴᱷᱮᱱ ᱠᱷᱚᱱ ᱜᱮ ᱡᱚᱛᱚ ᱯᱞᱮᱴᱯᱷᱚᱨᱢ ᱨᱮ ᱥᱮᱱ ᱫᱟᱲᱮᱭᱟᱜᱼᱟᱢ᱾">
-    <meta name="author" content="Prabir Hansda">
-
-    <meta name="google-site-verification" content="9rJu_cafZsztgwOcpiWxOJ0w5H71H_0JL58rBReseaQ" />
-    
-    <meta property="og:title" content="Prabir Hansda - Links & Socials">
-
-    <meta property="og:image" content="https://raw.githubusercontent.com/prabir-hansda/Prabir-Hansda/refs/heads/main/IMG_20251108_121940_605.png">
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/deuh0g7ft/image/upload/v1747215213/downloadfile_2_xilghh.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ol+Chiki:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ᱠᱟᱹᱦᱱᱤ ᱢᱟᱞᱟ</title>
     <style>
-      :root {
-        --bg-dark: #050505;
-        --bg-card: rgba(255, 255, 255, 0.05);
-        --border-glass: rgba(255, 255, 255, 0.1);
-        --primary: #3b82f6; 
-        --text-main: #ffffff;
-        --text-muted: #a1a1aa;
-        
-        /* Brand Colors */
-        --word: #2b579a;
-        --excel: #217346;
-        --ppt: #d24726;
-        --html: #e34c26;
-        --design: #d946ef;
-      }
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+        }
 
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      
-      body {
-        font-family: 'Noto Sans Ol Chiki', 'Poppins', sans-serif;
-        background-color: var(--bg-dark);
-        color: var(--text-main);
-        min-height: 100vh;
-        overflow-x: hidden;
-        display: flex;
-        justify-content: center;
-      }
-      #olink { 
-        color: white;
-        text-decoration: none;
-      }
+        h1 {
+            color: #38bdf8;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #38bdf8;
+            padding-bottom: 10px;
+        }
 
-      /* Animated Background */
-      .bg-animation {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-        background: radial-gradient(circle at 50% 50%, #111827 0%, #000000 100%);
-      }
-      .orb {
-        position: absolute; border-radius: 50%;
-        filter: blur(80px); opacity: 0.4;
-        animation: floatOrb 10s infinite alternate ease-in-out;
-      }
-      .orb-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: var(--primary); }
-      .orb-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: purple; animation-delay: -5s; }
+        .story-card {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: slideIn 1s ease forwards;
+        }
 
-      @keyframes floatOrb { 0% { transform: translate(0, 0); } 100% { transform: translate(30px, 50px); } }
+        .ol-chiki {
+            font-size: 1.6rem;
+            color: #f1f5f9;
+            display: block;
+            margin-bottom: 10px;
+        }
 
-      /* Main Container */
-      .container {
-        width: 100%; max-width: 500px; padding: 40px 20px 100px;
-        position: relative; z-index: 10;
-      }
+        .story-title {
+            color: #0cf71b;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
 
-      /* 3D Profile Card */
-      .profile-section {
-        text-align: center; margin-bottom: 40px;
-        perspective: 1000px;
-      }
-      .profile-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-glass);
-        padding: 30px; border-radius: 20px;
-        backdrop-filter: blur(12px);
-        transition: transform 0.2s;
-        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-      }
-      /* Hover Effect handled by JS for 3D tilt */
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-      .avatar {
-        width: 110px; height: 110px; border-radius: 50%;
-        border: 3px solid rgba(255,255,255,0.2); padding: 4px;
-        object-fit: cover; margin-bottom: 15px;
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-        animation: pulseAvatar 3s infinite;
-      }
-      @keyframes pulseAvatar { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
-
-      .name { font-size: 1.8rem; font-weight: 700; margin-bottom: 5px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-      .role { font-size: 0.9rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px; }
-
-      /* About Badge */
-      .about-text {
-        font-size: 0.95rem; color: #e2e8f0; line-height: 1.6;
-        background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px;
-        margin-top: 15px; border-left: 3px solid var(--primary);
-      }
-
-      /* Skills Grid (The Hero Section) */
-      .section-title {
-        font-size: 1.2rem; color: var(--text-main); margin: 30px 0 15px;
-        display: flex; align-items: center; gap: 10px;
-      }
-      .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border-glass); }
-
-      .skills-grid {
-        display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;
-      }
-
-      .skill-card {
-        background: var(--bg-card); border: 1px solid var(--border-glass);
-        border-radius: 15px; padding: 20px 15px;
-        display: flex; flex-direction: column; align-items: center; justify-content: center;
-        text-align: center; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        cursor: default; position: relative; overflow: hidden;
-      }
-
-      /* Hover Glows based on Brand */
-      .skill-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.5); }
-      
-      .skill-card.word:hover { box-shadow: 0 5px 20px rgba(43, 87, 154, 0.4); }
-      .skill-card.ppt:hover { box-shadow: 0 5px 20px rgba(210, 71, 38, 0.4); }
-      .skill-card.excel:hover { box-shadow: 0 5px 20px rgba(33, 115, 70, 0.4); }
-      .skill-card.design:hover { box-shadow: 0 5px 20px rgba(217, 70, 239, 0.4); }
-      .skill-card.html:hover { box-shadow: 0 5px 20px rgba(227, 76, 38, 0.4); }
-
-      .skill-icon { font-size: 2rem; margin-bottom: 10px; transition: transform 0.3s; }
-      .skill-card:hover .skill-icon { transform: scale(1.2); }
-      
-      .skill-name { font-size: 0.9rem; font-weight: 600; font-family: 'Poppins', sans-serif; }
-      .skill-sub { font-size: 0.7rem; color: var(--text-muted); font-family: 'Noto Sans Ol Chiki', sans-serif; margin-top: 2px; }
-
-      /* Links List */
-      .link-list { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
-      .link-item {
-        display: flex; align-items: center; padding: 16px 20px;
-        background: var(--bg-card); border: 1px solid var(--border-glass);
-        border-radius: 12px; color: white; text-decoration: none;
-        transition: 0.3s; position: relative; overflow: hidden;
-      }
-      .link-item::before {
-        content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%;
-        background: rgba(255, 255, 255, 0.08); transition: 0.3s; z-index: 0;
-      }
-      .link-item:hover::before { width: 100%; }
-      .link-item:hover { border-color: var(--primary); transform: translateX(5px); }
-      .link-item i { width: 35px; font-size: 1.3rem; z-index: 1; }
-      .link-item span { font-weight: 500; z-index: 1; }
-      .link-arrow { margin-left: auto; font-size: 0.8rem; opacity: 0.5; z-index: 1; transition: 0.3s; }
-      .link-item:hover .link-arrow { transform: translateX(5px); opacity: 1; }
-
-      /* Footer */
-      footer { text-align: center; margin-top: 50px; padding-bottom: 20px; color: var(--text-muted); font-size: 0.8rem; opacity: 0.6; }
-
-      /* Entry Animation Classes */
-      .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUpAnim 0.8s forwards ease-out; }
-      .delay-1 { animation-delay: 0.1s; }
-      .delay-2 { animation-delay: 0.2s; }
-      .delay-3 { animation-delay: 0.3s; }
-      .delay-4 { animation-delay: 0.4s; }
-      
-      @keyframes fadeUpAnim { to { opacity: 1; transform: translateY(0); } }
+        /* Har story alag time par animate hogi */
+        .story-card:nth-child(1) { animation-delay: 0.2s; }
+        .story-card:nth-child(2) { animation-delay: 0.5s; }
+        .story-card:nth-child(3) { animation-delay: 0.8s; }
+        .story-card:nth-child(4) { animation-delay: 1.1s; }
+        .story-card:nth-child(5) { animation-delay: 1.4s; }
+        .story-card:nth-child(6) { animation-delay: 1.7s; }
+        .story-card:nth-child(7) { animation-delay: 2.0s; }
+        .story-card:nth-child(8) { animation-delay: 2.3s; }
+        .story-card:nth-child(9) { animation-delay: 2.6s; }
+        .story-card:nth-child(10) { animation-delay: 2.9s; }
+        .story-card:nth-child(11) { animation-delay: 3.2s; }
+        .story-card:nth-child(12) { animation-delay: 3.5s; }
 
     </style>
 </head>
 <body>
 
-    <div class="bg-animation">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
+    <h1>ᱠᱟᱹᱦᱱᱤ ᱢᱟᱞᱟ</h1>
+
+    <div class="story-card">
+        <span class="story-title">᱑. ᱥᱮᱭᱟ ᱟᱨ ᱟᱹᱜᱩᱨ</span>
+        <span class="ol-chiki">ᱢᱤᱫ ᱫᱷᱟᱣ ᱢᱤᱫᱴᱟᱹᱝ ᱥᱮᱭᱟ ᱛᱟᱦᱮᱸ ᱠᱟᱱᱟᱭ ᱾ ᱩᱱᱤ ᱫᱚ ᱟᱹᱰᱤ ᱨᱮᱸᱜᱮᱡ ᱞᱮᱫᱮᱭᱟ ᱾ ᱩᱱᱤ ᱫᱚ ᱟᱹᱜᱩᱨ ᱵᱟᱜᱟᱱ ᱮ ᱧᱮᱞ ᱠᱮᱫᱼᱟ, ᱢᱮᱱᱠᱷᱟᱱ ᱟᱹᱜᱩᱨ ᱫᱚ ᱟᱹᱰᱤ ᱪᱮᱛᱟᱱ ᱨᱮ ᱛᱟᱦᱮᱸ ᱠᱟᱱᱟ ᱾</span>
     </div>
 
-    <div class="container">
-        
-        <div class="profile-section fade-up" id="tilt-card">
-            <div class="profile-card">
-                <img src="https://raw.githubusercontent.com/prabir-hansda/Prabir-Hansda/refs/heads/main/IMG_20251108_121940_605.png" alt="Prabir" class="avatar">
-                <h1 class="name">ᱯᱨᱚᱵᱤᱨ ᱦᱟᱸᱥᱫᱟᱜ</h1>
-                <p class="role">ᱠᱚᱢᱯᱭᱩᱴᱚᱨ ᱚᱯᱟᱨᱮᱴᱚᱨ, ᱜᱨᱟᱯᱷᱤᱠ ᱰᱤᱡᱟᱭᱱᱚᱨ ᱟᱨ ᱥᱤᱨᱡᱚᱱᱤᱭᱟ</p>
-                
-                <div class="about-text">
-                    <p>ᱤᱧ ᱫᱚ ᱯᱨᱚᱵᱤᱨ ᱦᱟᱸᱥᱫᱟᱜ᱾ ᱠᱚᱢᱯᱭᱩᱴᱚᱨ ᱟᱨ ᱰᱤᱡᱟᱭᱤᱱ ᱨᱮ ᱤᱧᱟᱜ ᱨᱟᱹᱥᱠᱟᱹ ᱢᱮᱱᱟᱜᱼᱟ᱾ MS Office ᱨᱮᱭᱟᱜ ᱠᱟᱹᱢᱤ ᱥᱟᱶᱛᱮ ᱱᱤᱛᱚᱜ ᱱᱟᱣᱟ ᱴᱮᱠᱱᱚᱞᱚᱡᱤ ᱪᱮᱫᱚᱜ ᱠᱟᱱᱟᱹᱧ᱾</p>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="section-title fade-up delay-1">ᱤᱧᱟᱜ ᱦᱩᱱᱟᱹᱨ (Skills)</h3>
-        
-        <div class="skills-grid">
-            <div class="skill-card word fade-up delay-2">
-                <i class="fas fa-file-word skill-icon" style="color: var(--word);"></i>
-                <div class="skill-name">MS Word</div>
-                <div class="skill-sub">ᱰᱚᱠᱩᱢᱮᱱᱴ ᱢᱟᱥᱴᱚᱨ</div>
-            </div>
-
-            <div class="skill-card ppt fade-up delay-2">
-                <i class="fas fa-file-powerpoint skill-icon" style="color: var(--ppt);"></i>
-                <div class="skill-name">PowerPoint</div>
-                <div class="skill-sub">ᱯᱨᱮᱡᱮᱱᱴᱮᱥᱚᱱ</div>
-            </div>
-
-            <div class="skill-card excel fade-up delay-3">
-                <i class="fas fa-file-excel skill-icon" style="color: var(--excel);"></i>
-                <div class="skill-name">Excel</div>
-                <div class="skill-sub">ᱰᱮᱴᱟ ᱮᱱᱟᱞᱤᱥᱤᱥ</div>
-            </div>
-
-            <div class="skill-card design fade-up delay-3">
-                <i class="fas fa-palette skill-icon" style="color: var(--design);"></i>
-                <div class="skill-name">Graphic Design</div>
-                <div class="skill-sub">ᱠᱨᱤᱭᱮᱴᱤᱵᱷ ᱰᱤᱡᱟᱭᱤᱱ</div>
-            </div>
-
-            <div class="skill-card html fade-up delay-4" style="grid-column: span 2;">
-                <i class="fab fa-html5 skill-icon" style="color: var(--html);"></i>
-                <div class="skill-name">HTML & Web</div>
-                <div class="skill-sub">ᱣᱮᱵᱽᱥᱟᱭᱤᱴ ᱛᱮᱭᱟᱨ</div>
-            </div>
-        </div>
-
-        <h3 class="section-title fade-up delay-4">ᱥᱟᱹᱜᱟᱹᱭ (Connect)</h3>
-        
-        <div class="link-list fade-up delay-4">
-            <a href="https://www.instagram.com/prabirhansda2" class="link-item">
-                <i class="fab fa-instagram" style="color: #E1306C;"></i>
-                <span>Instagram</span>
-                <i class="fas fa-arrow-right link-arrow"></i>
-            </a>
-            <a href="https://www.facebook.com/prabirhansda02" class="link-item">
-                <i class="fab fa-facebook" style="color: #1877F2;"></i>
-                <span>Facebook</span>
-                <i class="fas fa-arrow-right link-arrow"></i>
-            </a>
-            <a href="https://www.pexels.com/@prabir-hansda-1957481607/" class="link-item">
-                <img src="https://raw.githubusercontent.com/prabir-hansda/Prabir-Hansda/a2ee63414f3da31194d4312cf14c03cf59177cd3/pexels-logo-png.svg" 
-                 alt="Pexels Logo" 
-                  style="width:30px; height:30px; vertical-align:middle; margin-right:8px;">
-              <span>Pexels</span>
-              <i class="fas fa-arrow-right link-arrow"></i>
-            </a>
-            <a href="https://unsplash.com/@prabirhansda" class="link-item">
-                <i class="fab fa-unsplash" style="color: #ffffff;"></i>
-                <span>Unsplash</span>
-                <i class="fas fa-arrow-right link-arrow"></i>
-            </a>
-            <a href="https://youtube.com/@prabirhansda2" class="link-item">
-                <i class="fab fa-youtube" style="color: #FF0000;"></i>
-                <span>YouTube</span>
-                <i class="fas fa-arrow-right link-arrow"></i>
-            </a>
-            <a href="my projects.html" class="link-item" style="border-color: var(--primary);">
-                <i class="fas fa-briefcase" style="color: var(--primary);"></i>
-                <span>ᱤᱧᱟᱜ ᱯᱨᱚᱡᱮᱠᱴ ᱠᱚ (Projects)</span>
-                <i class="fas fa-arrow-right link-arrow"></i>
-            </a>
-        </div>
-
-        <footer class="fade-up delay-4">
-           <a id="olink" href="myage.html"> &copy; <span id="year"></span> ᱯᱨᱚᱵᱤᱨ ᱦᱟᱸᱥᱫᱟᱜ | ᱡᱚᱦᱟᱨ </a>
-        </footer>
-
+    <div class="story-card">
+        <span class="story-title">᱒. ᱠᱩᱞ ᱟᱨ ᱜᱩᱲᱩ</span>
+        <span class="ol-chiki">ᱢᱤᱫ ᱠᱩᱞ ᱡᱟᱹᱯᱤᱫ ᱞᱮᱫᱼᱟ, ᱢᱤᱫ ᱜᱩᱲᱩ ᱩᱱᱤ ᱪᱮᱛᱟᱱ ᱨᱮ ᱫᱚᱱ ᱠᱮᱫᱼᱟ ᱾ ᱠᱩᱞ ᱫᱚ ᱜᱩᱲᱩᱭ ᱥᱟᱵ ᱠᱮᱫᱮᱭᱟ, ᱢᱮᱱᱠᱷᱟᱱ ᱜᱩᱲᱩ ᱫᱚ ᱟᱲᱟᱜ ᱠᱟᱫᱮᱭᱟ ᱾</span>
     </div>
 
-    <script>
-        // Year Update
-        document.getElementById('year').innerText = new Date().getFullYear();
+    <div class="story-card">
+        <span class="story-title">᱓. ᱠᱟᱹᱦᱩ ᱟᱨ ᱫᱟᱜ</span>
+        <span class="ol-chiki">ᱢᱤᱫ ᱠᱟᱹᱦᱩ ᱟᱹᱰᱤ ᱛᱮᱛᱟᱝ ᱞᱮᱫᱮᱭᱟ ᱾ ᱩᱱᱤ ᱫᱚ ᱢᱤᱫᱴᱟᱹᱝ ᱴᱩᱠᱩᱡ ᱨᱮ ᱫᱟᱜ ᱮ ᱧᱮᱞ ᱠᱮᱫᱼᱟ, ᱢᱮᱱᱠᱷᱟᱱ ᱫᱟᱜ ᱫᱚ ᱟᱹᱰᱤ ᱞᱟᱛᱟᱨ ᱨᱮ ᱛᱟᱦᱮᱸ ᱠᱟᱱᱟ ᱾</span>
+    </div>
 
-        // 3D Tilt Effect Logic for Profile Card
-        const card = document.querySelector('.profile-card');
-        const container = document.querySelector('.profile-section');
+    <div class="story-card">
+        <span class="story-title">᱔. ᱦᱟᱹᱛᱤ ᱟᱨ ᱥᱮᱭᱟ</span>
+        <span class="ol-chiki">ᱵᱤᱨ ᱨᱮ ᱢᱤᱫ ᱦᱟᱹᱛᱤ ᱛᱟᱦᱮᱸ ᱠᱟᱱᱟᱭ ᱾ ᱩᱱᱤ ᱫᱚ ᱥᱟᱱᱟᱢ ᱡᱟᱱᱣᱟᱨ ᱠᱚ ᱥᱟᱶ ᱮ ᱮᱱᱮᱡ ᱠᱟᱱ ᱛᱟᱦᱮᱸᱫ ᱾</span>
+    </div>
 
-        container.addEventListener('mousemove', (e) => {
-            let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
+    <div class="story-card">
+        <span class="story-title">᱕. ᱜᱟᱹᱭ ᱟᱨ ᱠᱩᱞ</span>
+        <span class="ol-chiki">ᱯᱩᱱᱭᱟ ᱜᱟᱹᱭ ᱟᱹᱰᱤ ᱥᱩᱞᱩᱠ ᱛᱮ ᱠᱚ ᱛᱟᱦᱮᱸ ᱠᱟᱱᱟ ᱾ ᱩᱱᱠᱩ ᱫᱚ ᱠᱩᱞ ᱠᱚ ᱦᱟᱨᱟᱣ ᱠᱮᱫᱮᱭᱟ ᱾</span>
+    </div>
 
-        // Reset Animation on Mouse Leave
-        container.addEventListener('mouseleave', (e) => {
-            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-            card.style.transition = 'all 0.5s ease';
-        });
+    <div class="story-card">
+        <span class="story-title">᱖. ᱠᱩᱞᱟᱹᱭ ᱟᱨ ᱦᱚᱨᱚ</span>
+        <span class="ol-chiki">ᱠᱩᱞᱟᱹᱭ ᱫᱚ ᱟᱹᱰᱤ ᱡᱩᱨ ᱮ ᱫᱟᱹᱲ ᱮᱫ ᱛᱟᱦᱮᱸᱫ, ᱢᱮᱱᱠᱷᱟᱱ ᱦᱚᱨᱚ ᱫᱚ ᱫᱷᱤᱨᱮ ᱫᱷᱤᱨᱮ ᱪᱟᱞᱟᱣ ᱠᱟᱛᱮ ᱮ ᱡᱤᱛᱠᱟᱹᱨ ᱮᱱᱟ ᱾</span>
+    </div>
 
-        // Smooth Entrance for Mouse Enter
-        container.addEventListener('mouseenter', (e) => {
-            card.style.transition = 'none';
-        });
+    <div class="story-card">
+        <span class="story-title">᱗. ᱪᱮᱬᱮ ᱟᱨ ᱥᱤᱠᱷᱤᱛ </span>
+        <span class="ol-chiki">ᱥᱤᱠᱷᱤᱛ ᱡᱟᱞ ᱮ ᱯᱟᱥᱭᱟᱣ ᱞᱮᱫᱼᱟ, ᱢᱮᱱᱠᱷᱟᱱ ᱪᱮᱬᱮ ᱠᱚ ᱢᱤᱫ ᱥᱟᱶᱛᱮ ᱡᱟᱞ ᱠᱚ ᱩᱰᱟᱹᱣ ᱤᱫᱤ ᱠᱮᱫᱼᱟ ᱾</span>
+    </div>
 
-    </script>
+    <div class="story-card">
+        <span class="story-title">᱘. ᱥᱮᱛᱟ ᱟᱨ ᱡᱮᱞ</span>
+        <span class="ol-chiki">ᱢᱤᱫ ᱥᱮᱛᱟ ᱡᱮᱞ ᱮ ᱧᱟᱢ ᱞᱮᱫᱼᱟ ᱾ ᱩᱱᱤ ᱫᱚ ᱜᱟᱰᱟ ᱫᱟᱜ ᱨᱮ ᱟᱡᱟᱜ ᱩᱢᱩᱞ ᱮ ᱧᱮᱞ ᱠᱮᱫᱼᱟ ᱟᱨ ᱡᱮᱞ ᱮ ᱜᱩᱨ ᱠᱮᱫᱼᱟ ᱾</span>
+    </div>
+
+    <div class="story-card">
+        <span class="story-title">᱙. ᱪᱟᱹᱥᱤ ᱟᱨ ᱟᱡ ᱨᱮᱱ ᱠᱚᱲᱟ</span>
+        <span class="ol-chiki">ᱢᱤᱫ ᱦᱟᱲᱟᱢ ᱪᱟᱹᱥᱤ ᱟᱡ ᱨᱮᱱ ᱠᱚᱲᱟ ᱠᱚ ᱢᱤᱫ ᱥᱟᱶᱛᱮ ᱛᱟᱦᱮᱸᱱ ᱞᱟᱹᱜᱤᱫ ᱮ ᱥᱮᱪᱮᱫ ᱠᱮᱫ ᱠᱚᱣᱟ ᱾</span>
+    </div>
+
+    <div class="story-card">
+        <span class="story-title">᱑᱐. ᱜᱟᱹᱰᱤ ᱟᱨ ᱢᱮᱨᱚᱢ</span>
+        <span class="ol-chiki">ᱢᱤᱫ ᱢᱮᱨᱚᱢ ᱵᱤᱨ ᱛᱮ ᱪᱟᱞᱟᱣ ᱮᱱᱟᱭ ᱟᱨ ᱩᱱᱤ ᱫᱚ ᱟᱹᱰᱤ ᱢᱚᱡᱽ ᱜᱟᱹᱰᱤ ᱧᱟᱢ ᱠᱮᱫᱼᱟ ᱾</span>
+    </div>
+
+    <div class="story-card">
+        <span class="story-title">᱑᱑. ᱥᱟᱹᱫᱷᱩ ᱟᱨ ᱪᱩᱴᱤᱭᱟᱹ</span>
+        <span class="ol-chiki">ᱥᱟᱹᱫᱷᱩ ᱫᱚ ᱢᱤᱫ ᱪᱩᱴᱤᱭᱟᱹ ᱵᱤᱞᱤ ᱵᱮᱱᱟᱣ ᱠᱟᱫᱮᱭᱟᱭ, ᱢᱮᱱᱠᱷᱟᱱ ᱩᱱᱤ ᱫᱚ ᱟᱨᱦᱚᱸ ᱠᱩᱞ ᱵᱮᱱᱟᱣ ᱮ ᱢᱮᱱ ᱠᱮᱫᱼᱟ ᱾</span>
+    </div>
+
+    <div class="story-card">
+        <span class="story-title">᱑᱒. ᱜᱟᱹᱰᱟᱹᱨ ᱟᱨ ᱵᱤᱨ</span>
+        <span class="ol-chiki">ᱢᱤᱫ ᱜᱟᱹᱰᱟᱹᱨ ᱵᱤᱨ ᱨᱮ ᱢᱮᱨᱚᱢ ᱠᱚᱭ ᱧᱮᱞ ᱠᱮᱫ ᱠᱚᱣᱟ ᱟᱨ ᱩᱱᱤ ᱫᱚ ᱵᱚᱛᱚᱨ ᱮᱱᱟᱭ ᱾</span>
+    </div>
+
 </body>
 </html>
