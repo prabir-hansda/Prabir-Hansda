@@ -3,136 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chronos | Luxury Age Tracker</title>
+  <title>ToonTime | My Age Tracker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0c;
-      --card: rgba(23, 23, 26, 0.8);
-      --accent: #ffffff;
-      --secondary: #3b82f6; /* Subtle blue for seconds */
-      --border: rgba(255, 255, 255, 0.05);
+      --bg: #bdbdbd;
+      --card-bg: #ffffff;
+      --primary: #ff477e; 
+      --secondary: #4cc9f0; 
+      --accent: #f9c74f; 
+      --text: #2d3436;
+      --border-size: 4px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Fredoka One', cursive;
       background-color: var(--bg);
-      color: white;
+      background-image: radial-gradient(#da4545 2.5px, transparent 2.5px);
+      background-size: 30px 30px; /* Dotted Background */
+      color: var(--text);
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      /* Background subtle gradient */
-      background: radial-gradient(circle at 50% -20%, #1e293b 0%, #0a0a0c 80%);
     }
 
-    /* Minimalist Glow Container */
     #app-container {
       width: 90%;
-      max-width: 500px;
-      padding: 40px;
-      border-radius: 32px;
-      background: var(--card);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+      max-width: 450px;
+      padding: 30px;
+      background: var(--card-bg);
+      border: var(--border-size) solid var(--text);
+      border-radius: 40px;
+      box-shadow: 12px 12px 0px var(--text); /* Comic style shadow */
       text-align: center;
-      animation: reveal 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    @keyframes reveal {
-      from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
-      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+      position: relative;
     }
 
     .title {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.6em;
-      color: #64748b;
-      margin-bottom: 40px;
-      font-weight: 600;
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 0px var(--text);
     }
 
     /* Main Big Number */
     .years-wrap {
-      margin-bottom: 50px;
+      background: var(--accent);
+      padding: 20px;
+      border-radius: 30px;
+      border: var(--border-size) solid var(--text);
+      margin-bottom: 25px;
+      transform: rotate(-2deg); /* Slightly tilted for "toon" effect */
     }
 
     #years {
-      font-size: 6.5rem;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.05em;
-      background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,0.2) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 5.5rem;
+      color: white;
+      text-shadow: 5px 5px 0px var(--text);
+      display: inline-block;
     }
 
     .years-label {
-      font-size: 0.9rem;
-      color: #475569;
-      margin-top: 10px;
+      font-size: 1.2rem;
+      color: var(--text);
+      display: block;
     }
 
-    /* Elegant Stats Grid */
+    /* Cartoon Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 15px;
     }
 
     .stat-card {
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.02);
+      padding: 15px;
+      background: white;
+      border: 3px solid var(--text);
       border-radius: 20px;
-      border: 1px solid var(--border);
-      transition: all 0.4s ease;
+      transition: transform 0.2s;
     }
 
-    .stat-card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
+    .stat-card:nth-child(odd) { transform: rotate(2deg); background: #9bf6ff; }
+    .stat-card:nth-child(even) { transform: rotate(-2deg); background: #bdb2ff; }
 
     .val {
       display: block;
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-variant-numeric: tabular-nums;
+      font-size: 1.8rem;
+      color: var(--text);
     }
 
     .unit {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      color: #64748b;
-      letter-spacing: 0.1em;
+      color: rgba(0,0,0,0.6);
     }
 
-    /* Premium Seconds Progress */
+    /* Animated Seconds */
     .sec-container {
-      margin-top: 16px;
       grid-column: span 2;
-      background: linear-gradient(90deg, rgba(59, 130, 246, 0.05), transparent);
+      background: var(--primary) !important;
+      transform: rotate(0deg) !important;
     }
 
     #seconds {
-      color: var(--secondary);
-      transition: all 0.3s ease;
+      color: white;
+      font-size: 2.5rem;
+      text-shadow: 3px 3px 0px var(--text);
     }
 
-    /* Smooth Progress Line */
+    /* Bouncing Animation for Seconds */
+    .bounce {
+      animation: toon-bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes toon-bounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* Progress Bar */
     .progress-track {
       width: 100%;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.05);
-      margin-top: 40px;
+      height: 20px;
+      background: #eee;
+      margin-top: 30px;
+      border: 3px solid var(--text);
       border-radius: 10px;
       overflow: hidden;
     }
@@ -140,25 +144,30 @@
     #progress-fill {
       height: 100%;
       width: 0%;
-      background: var(--secondary);
+      background: repeating-linear-gradient(
+        45deg,
+        var(--accent),
+        var(--accent) 10px,
+        #fbc531 10px,
+        #fbc531 20px
+      );
       transition: width 1s linear;
     }
 
-    /* Mobile scaling */
     @media (max-width: 400px) {
-      #years { font-size: 4.5rem; }
-      #app-container { padding: 30px 20px; }
+      #years { font-size: 3.5rem; }
+      #app-container { padding: 20px; }
     }
   </style>
 </head>
 <body>
 
   <main id="app-container">
-    <div class="title">Time Elapsed</div>
+    <div class="title">I'm Growing Up!</div>
     
     <div class="years-wrap">
       <div id="years">00</div>
-      <div class="years-label">Years of Life</div>
+      <span class="years-label">Years Old</span>
     </div>
 
     <div class="grid">
@@ -176,11 +185,11 @@
       </div>
       <div class="stat-card">
         <span id="minutes" class="val">00</span>
-        <span class="unit">Minutes</span>
+        <span class="unit">Mins</span>
       </div>
       <div class="stat-card sec-container">
         <span id="seconds" class="val">00</span>
-        <span class="unit">Seconds Tracking</span>
+        <span class="unit" style="color: white;">Seconds to Go!</span>
       </div>
     </div>
 
@@ -190,7 +199,7 @@
   </main>
 
   <script>
-    // Apni birth date yahan set karein
+    // Birth Date Setup
     const BIRTH_DATE = new Date(2004, 7, 22, 13, 30); 
 
     function update() {
@@ -211,15 +220,23 @@
       }
       if (m < 0) { m += 12; y--; }
 
-      // Content Update
+      // Update values
       document.getElementById('years').innerText = y;
       document.getElementById('months').innerText = m;
       document.getElementById('days').innerText = d;
       document.getElementById('hours').innerText = h.toString().padStart(2, '0');
       document.getElementById('minutes').innerText = min.toString().padStart(2, '0');
-      document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
+      
+      const secEl = document.getElementById('seconds');
+      if(secEl.innerText != s) {
+          secEl.innerText = s.toString().padStart(2, '0');
+          // Add bounce effect on every second tick
+          secEl.classList.remove('bounce');
+          void secEl.offsetWidth; // Trigger reflow
+          secEl.classList.add('bounce');
+      }
 
-      // Subtle Progress Update
+      // Striped Progress Bar Update
       document.getElementById('progress-fill').style.width = (s / 60 * 100) + "%";
     }
 
